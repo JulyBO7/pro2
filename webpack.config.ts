@@ -9,7 +9,7 @@ const mode = env.mode || 'development'
 const isDev = mode === 'development'
 
   const paths =  {
-    html: path.resolve(__dirname,'index.html'),
+    html: path.resolve(__dirname,'public','index.html'),
     entry:'./src/index.tsx',
     build: path.resolve(__dirname, 'build'),
     src: path.resolve(__dirname, 'src'),

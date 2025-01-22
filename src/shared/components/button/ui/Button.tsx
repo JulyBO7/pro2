@@ -5,6 +5,7 @@ import cls from "./button.module.scss";
 export enum ButtonTheme {
   PRIMARY = "primary",
   CLEAR = "clear",
+  INVERTED = "inverted",
 }
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -21,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <div>
       <button
-        className={classNames(cls.button, {}, [cls[theme]])}
+        className={classNames(cls.button, {}, [cls[theme], className])}
         onClick={onClick}
         {...otherProps}
       >

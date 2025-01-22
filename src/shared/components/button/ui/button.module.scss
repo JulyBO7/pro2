@@ -11,6 +11,13 @@
   background: none;
   border: none;
 }
+.inverted {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid var(--invert-bg-color);
+}
 .primary {
-  background-color: var(--primary-color);
+  background-color: transparent;
+  outline: none;
+  border: 1px solid var(--secondary-color);
 }

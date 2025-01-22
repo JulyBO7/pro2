@@ -15,7 +15,6 @@ export const buildLoaders = (options:BuildOptions )=> {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     }
-  
     let tsLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
