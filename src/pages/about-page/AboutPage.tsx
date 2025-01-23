@@ -1,13 +1,14 @@
+// eslint-disable-next-line quotes
 import { useTranslation } from "react-i18next";
 
 const AboutPage = () => {
-  const { t, i18n } = useTranslation("about");
+    const { t } = useTranslation("about");
 
-  return (
-    <div>
-      <h1>{t("about")}</h1>
-    </div>
-  );
+    return (
+        <div>
+            <h1>{t("about")}</h1>
+        </div>
+    );
 };
 
 export default AboutPage;

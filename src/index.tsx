@@ -1,18 +1,18 @@
 import { render } from "react-dom";
-import { App } from "@/app/App";
 import { BrowserRouter } from "react-router-dom";
+import { App } from "@/app/App";
 import { ThemeProvider } from "./app/providers/theme-context/ui/ThemeProvider";
 import "@/shared/config/i18n/i18n";
 
 const root = document.getElementById("root");
 
 render(
-  <BrowserRouter>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>,
-  root
+    <BrowserRouter>
+        <ThemeProvider>
+            <App />
+        </ThemeProvider>
+    </BrowserRouter>,
+    root,
 );
 
 // import {foo} from './test'

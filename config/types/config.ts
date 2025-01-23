@@ -1,4 +1,4 @@
-export type Mode = 'development' | 'production'
+export type Mode = "development" | "production"
 
 export type Paths = {
     html: string
