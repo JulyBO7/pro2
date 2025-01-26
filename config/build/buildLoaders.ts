@@ -10,6 +10,17 @@ export const buildLoaders = (options:BuildOptions) => {
             },
         ],
     };
+    const babelLoader = {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ["@babel/preset-env", "@babel/preset-typescript"],
+                plugins: ["i18next-extract"],
+            },
+        },
+    };
     const svgLoader = {
         test: /\.svg$/,
         use: ["@svgr/webpack"],
@@ -36,6 +47,7 @@ export const buildLoaders = (options:BuildOptions) => {
             "sass-loader"],
     };
     return [
+        babelLoader,
         tsLoader,
         cssLoader,
         svgLoader,

@@ -4,6 +4,7 @@
   padding: 5px;
   cursor: pointer;
 }
+
 .clear {
   outline: none;
   padding: 0;
@@ -11,11 +12,13 @@
   background: none;
   border: none;
 }
+
 .inverted {
   background-color: transparent;
   outline: none;
   border: 1px solid var(--invert-bg-color);
 }
+
 .primary {
   background-color: transparent;
   outline: none;
