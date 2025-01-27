@@ -1,21 +1,21 @@
 .navbar {
-  width: 100%;
-  height: var(--navbar-height);
-  display: flex;
-  background-color: var(--invert-bg-color);
-  align-items: center;
-  padding: 0 10px;
-  border: 1px solid var(--secondary-color);
+    width: 100%;
+    height: var(--navbar-height);
+    display: flex;
+    background-color: var(--invert-bg-color);
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid var(--secondary-color);
 
-  // border: 1px solid var(--invert-secondary-color);
+    // border: 1px solid var(--invert-secondary-color);
 }
 
 .navbarLink {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .wrapperLink {
-  margin-left: auto;
-  display: flex;
-  column-gap: 10px;
+    margin-left: auto;
+    display: flex;
+    column-gap: 10px;
 }

@@ -1,5 +1,7 @@
 {
   "hello": "HELLO",
   "lang": "English",
-  "collapseSidebar": "Collapse"
+  "collapseSidebar": "Collapse",
+  "pageNotFound": "Page not found",
+  "main": "Main page"
 }

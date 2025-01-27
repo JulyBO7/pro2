@@ -2,7 +2,8 @@
    "extends": "stylelint-config-standard-scss",
    "rules": {
       "selector-class-pattern":null,
-      "indentation": [2],
-      "scss/double-slash-comment-whitespace-inside":null
+      "indentation": [4],
+      "scss/double-slash-comment-whitespace-inside":null,
+      "number-max-precision": [4,{"ignoreProperties": ["top", "left"]}]
    }
   }

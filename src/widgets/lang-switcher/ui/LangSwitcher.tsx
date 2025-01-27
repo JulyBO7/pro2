@@ -4,7 +4,7 @@ import { Button, ButtonTheme } from "@/shared/components/button";
 
 type ToggleLangProps = {};
 
-export const LangSwitcher: React.FC<ToggleLangProps> = (props:ToggleLangProps) => {
+export const LangSwitcher: React.FC<ToggleLangProps> = () => {
     const { t, i18n } = useTranslation();
 
     const switchLang = () => {

@@ -1,5 +1,8 @@
 {
   "hello": "ПРИВЕТ",
   "lang": "Русский",
-  "collapseSidebar": "Свернуть"
+  "collapseSidebar": "Свернуть",
+  "pageNotFound": "Страница не найдена",
+  "main": "Основной раздел"
+
 }
