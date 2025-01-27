@@ -3,5 +3,10 @@
   "lang": "English",
   "collapseSidebar": "Collapse",
   "pageNotFound": "Page not found",
-  "main": "Main page"
+  "main": "Main page",
+  "pageError": "Error on page",
+  "reload": "Reload",
+  "aboutLink": "About", 
+  "descriptionLink": "Description",
+  "bugButton": "test bag"
 }

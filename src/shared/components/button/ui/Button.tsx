@@ -18,15 +18,17 @@ export const Button: React.FC<ButtonProps> = ({
     onClick,
     theme = ButtonTheme.PRIMARY,
     ...otherProps
-}) => (
-    <div>
-        <button
-            type="button"
-            className={classNames(cls.button, {}, [cls[theme], className])}
-            onClick={onClick}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    </div>
-);
+}) => {
+    return (
+        <div>
+            <button
+                type="button"
+                className={classNames(cls.button, {}, [cls[theme], className])}
+                onClick={onClick}
+                {...otherProps}
+            >
+                {children}
+            </button>
+        </div>
+    );
+};

@@ -6,9 +6,7 @@ import { LangSwitcher } from "@/widgets/lang-switcher";
 import { Button, ButtonTheme } from "@/shared/components/button";
 import { classNames } from "@/shared/utils/classNames";
 
-type SidebarProps = {};
-
-export const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
+export const Sidebar: React.FC = () => {
     const { t } = useTranslation();
     const [collapse, setCollapse] = useState(false);
 
@@ -17,7 +15,7 @@ export const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
             <Button
                 className={cls.switcherButton}
                 theme={ButtonTheme.PRIMARY}
-                onClick={() => setCollapse((prev) => !prev)}
+                onClick={() => { return setCollapse((prev) => { return !prev; }); }}
             >
                 {t("collapseSidebar")}
             </Button>

@@ -2,7 +2,6 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
 type ErrorPageProps = {
-
 }
 
 export const ErrorPage:FC<ErrorPageProps> = () => {
@@ -10,7 +9,6 @@ export const ErrorPage:FC<ErrorPageProps> = () => {
     return (
         <div>
             {t("pageNotFound")}
-
         </div>
     );
 };

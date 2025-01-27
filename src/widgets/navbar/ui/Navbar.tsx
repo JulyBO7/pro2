@@ -1,19 +1,21 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/utils/classNames";
 import cls from "./Navbar.module.scss";
 import { AppLink } from "@/shared/components/app-link";
 
-type NavbarProps = {};
-
-export const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
+export const Navbar: React.FC = () => {
+    const [t] = useTranslation();
     return (
         <div className={classNames(cls.navbar)}>
             <div className={cls.wrapperLink}>
+                {/* eslint-disable-next-line i18next/no-literal-string */}
                 <AppLink to="/about" className={classNames(cls.navbarLink)}>
-                    About
+                    {t("aboutLink")}
                 </AppLink>
+                {/* eslint-disable-next-line i18next/no-literal-string */}
                 <AppLink to="/description" className={classNames(cls.navbarLink)}>
-                    Description
+                    {t("descriptionLink")}
                 </AppLink>
             </div>
         </div>

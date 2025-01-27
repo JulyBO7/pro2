@@ -7,13 +7,9 @@ import { useTheme } from "@/app/providers/theme-context";
 import { ButtonTheme } from "@/shared/components/button/ui/Button";
 
 type ToggleThemProps = {
-  className?: string;
 };
 
-export const ToggleThem: React.FC<ToggleThemProps> = ({
-    className,
-    children,
-}) => {
+export const ToggleThem: React.FC<ToggleThemProps> = () => {
     const { theme, toggleTheme } = useTheme();
     return (
         <div>

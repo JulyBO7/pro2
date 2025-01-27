@@ -4,7 +4,7 @@ export const classNames = (cls: string, mods: SecondaryClass = {}, aditional: st
     // let cn = [mainClass, ...secondaryClass, ...Object.entries(optionalClasses).filter((el)=> Boolean(el[1]))
     // .map(el=> el[0]) ] //вариант похож на тот что Ульби показал
 
-    const cn = [cls, ...aditional, ...Object.keys(mods).filter((key) => mods[key])];
+    const cn = [cls, ...aditional, ...Object.keys(mods).filter((key) => { return mods[key]; })];
 
     return cn.join(" ");
 };

@@ -10,7 +10,7 @@ export const ThemeProvider = ({ children }: { children: ReactElement }) => {
         setTheme(newTheme);
         localStorage.setItem("theme", newTheme);
     };
-    const providerValue = useMemo(() => ({ theme, toggleTheme }), [theme]);
+    const providerValue = useMemo(() => { return { theme, toggleTheme }; }, [theme]);
 
     return (
         <ThemeContext.Provider value={providerValue}>

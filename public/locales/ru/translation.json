@@ -3,6 +3,12 @@
   "lang": "Русский",
   "collapseSidebar": "Свернуть",
   "pageNotFound": "Страница не найдена",
-  "main": "Основной раздел"
+  "main": "Основной раздел",
+  "pageError": "Ошибка на странице",
+  "reload": "Перезагрузить",
+  "aboutLink": "О чем", 
+  "descriptionLink": "Описание",
+   "bugButton": "тестовая ошибка"
+
 
 }

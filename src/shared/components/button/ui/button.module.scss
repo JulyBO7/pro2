@@ -21,6 +21,7 @@
 
 .primary {
     background-color: transparent;
-    outline: none;
-    border: 1px solid var(--secondary-color);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--secondary-color, black);
 }
