@@ -9,9 +9,7 @@ export const buildResolvers = (options: BuildOptions) => {
         modules: [options.paths.src, "node_modules"], //* *
         mainFiles: ["index"],
 
-        alias: {
-            "@": options.paths.src,
-        },
+        alias: {},
     };
 };
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Loader } from "@/shared/components/loader";
+import { Loader } from "shared/components/loader";
 import cls from "./PageLoader.module.scss";
 
 type PageLoaderProps = {

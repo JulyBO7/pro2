@@ -1,5 +1,5 @@
 import React from "react";
-import { PageError } from "@/widgets/page-error";
+import { PageError } from "widgets/page-error";
 
 type ErrorBoundaryProps = {
     children: React.ReactNode

@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "@/shared/components/button";
-import LightThemeIcon from "@/shared/assets/icons/theme-light 1.svg";
-import DarkThemeIcon from "@/shared/assets/icons/theme-dark 1.svg";
+import { Button } from "shared/components/button";
+import LightThemeIcon from "shared/assets/icons/theme-light 1.svg";
+import DarkThemeIcon from "shared/assets/icons/theme-dark 1.svg";
 
-import { useTheme } from "@/app/providers/theme-context";
-import { ButtonTheme } from "@/shared/components/button/ui/Button";
+import { useTheme } from "app/providers/theme-context";
+import { ButtonTheme } from "shared/components/button/ui/Button";
 
 type ToggleThemProps = {
 };

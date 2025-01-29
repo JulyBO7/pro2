@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "@/shared/components/button";
+import { Button, ButtonTheme } from "shared/components/button";
 
 type ToggleLangProps = {};
 

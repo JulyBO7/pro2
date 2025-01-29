@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "@/shared/utils/classNames";
+import { classNames } from "shared/lib/classNames";
+import { AppLink } from "shared/components/app-link";
 import cls from "./Navbar.module.scss";
-import { AppLink } from "@/shared/components/app-link";
 
 export const Navbar: React.FC = () => {
     const [t] = useTranslation();

@@ -12,12 +12,19 @@
       "allowSyntheticDefaultImports": true,
       "baseUrl": ".",
       "paths": {
-        "@/*": ["./src/*"]
-      }
+        "*": ["./src/*"]
+      },
+      // "paths": {
+      //   "@/*": ["./src/*"] //настройка алиасов (убрала)
+      // }
     },
     "ts-node": {
       "compilerOptions": {
         "module": "CommonJS"
       }
-    }
+    },
+    "include": [
+      "./config/jest/setupTests.ts",
+      "**/*"
+    ],
   }

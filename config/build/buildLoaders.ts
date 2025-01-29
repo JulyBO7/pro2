@@ -16,7 +16,10 @@ export const buildLoaders = (options:BuildOptions) => {
         use: {
             loader: "babel-loader",
             options: {
-                presets: ["@babel/preset-env", "@babel/preset-typescript"],
+                presets: [
+                    "@babel/preset-env",
+                    "@babel/preset-react",
+                ],
                 plugins: ["i18next-extract"],
             },
         },

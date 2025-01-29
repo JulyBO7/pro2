@@ -1,5 +1,6 @@
-import React from "react";
-import { classNames } from "@/shared/utils/classNames";
+// import React from "react";
+import { ButtonHTMLAttributes, FC } from "react";
+import { classNames } from "shared/lib/classNames";
 import cls from "./button.module.scss";
 
 export enum ButtonTheme {
@@ -7,12 +8,12 @@ export enum ButtonTheme {
   CLEAR = "clear",
   INVERTED = "inverted",
 }
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   theme?: ButtonTheme;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
     children,
     className,
     onClick,

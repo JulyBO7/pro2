@@ -3,17 +3,10 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from "path";
+
 export default {
-    // All imported modules in your tests should be mocked automatically
-    // automock: false,
 
-    // Stop running tests after `n` failures
-    // bail: 0,
-
-    // The directory where Jest should store its cached dependency information
-    // cacheDirectory: "C:\\Users\\Juliya\\AppData\\Local\\Temp\\jest",
-
-    // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
     // An array of file extensions your modules use
     moduleFileExtensions: [
@@ -39,11 +32,24 @@ export default {
     // The root directory that Jest should scan for tests and modules within
     rootDir: "../../",
     // The glob patterns Jest uses to detect test files
+    // testMatch: [
+    //     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+    //     "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
+    // ],
     testMatch: [
         "**/__tests__/**/*.[jt]s?(x)",
         "**/?(*.)+(spec|test).[tj]s?(x)",
     ],
-
+    setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
+    modulePaths: ["<rootDir>src"], // настроили абсолютные импорты
+    moduleNameMapper: {
+        // "^@/(.*)$": "<rootDir>src/$1", // если использовать алиасы
+        "\\.(s?css)$": "identity-obj-proxy",
+        "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+    },
+    // transform: {
+    //     "^.+\\.svg$": "<rootDir>config/jest/jestEmptyComponent.tsx", // нашла на стековерфлоу, вместо решения, которое выше показывал Улби
+    // },
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
