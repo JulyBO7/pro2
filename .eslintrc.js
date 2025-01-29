@@ -40,7 +40,11 @@ module.exports = {
         "linebreak-style": "off",
         quotes: ["error", "double"],
         "max-len": ["error", { ignoreComments: true, code: 100 }],
-        "i18next/no-literal-string": ["error", { markupOnly: true }],
+        "i18next/no-literal-string": [
+            "error", {
+                markupOnly: true,
+                ignoreAttribute: ["data-testid"],
+            }],
         "arrow-body-style": ["error", "always"],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "error",
@@ -48,6 +52,12 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: '**/src/**/*.test.{ts,tsx}',
+            "i18next/no-literal-string": "off",
+        },
+    ],
     // ignores: [ "build/**"]
 
 };
