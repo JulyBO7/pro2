@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, LinkProps } from "react-router-dom";
 import { classNames } from "shared/lib/classNames";
-import cls from "./appLink.module.scss";
+import cls from "./AppLink.module.scss";
 
-enum AppLinkTheme {
+export enum AppLinkTheme {
   PRIMARY = "primary",
   SECONDARY = "secondary",
+  NOT_UNDERLINE = "notUnderline"
 }
 
 interface AppLinkProps extends LinkProps {

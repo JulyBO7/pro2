@@ -43,7 +43,7 @@ module.exports = {
         "i18next/no-literal-string": [
             "error", {
                 markupOnly: true,
-                ignoreAttribute: ["data-testid"],
+                ignoreAttribute: ["data-testid", "to"],
             }],
         "arrow-body-style": ["error", "always"],
         "no-unused-vars": "off",
@@ -54,8 +54,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: '**/src/**/*.test.{ts,tsx}',
-            "i18next/no-literal-string": "off",
+            files: "**/src/**/*.test.{ts,tsx}",
+            rules: {
+                "i18next/no-literal-string": "off",
+            },
         },
     ],
     // ignores: [ "build/**"]

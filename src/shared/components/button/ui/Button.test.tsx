@@ -8,10 +8,10 @@ describe("tests Button", () => {
 
         expect(screen.getByText("BUTTON")).toBeInTheDocument();
     });
-    test("button in the document", () => {
-        render(<Button theme={ButtonTheme.CLEAR}>BUTTON</Button>);
+    test("adding class", () => {
+        render(<Button theme={ButtonTheme.OUTLINE}>BUTTON</Button>);
 
-        expect(screen.getByText("BUTTON")).toHaveClass("clear");
+        expect(screen.getByText("BUTTON")).toHaveClass("outline");
         screen.debug(screen.getByText("BUTTON"));
     });
 });

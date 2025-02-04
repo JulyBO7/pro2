@@ -13,15 +13,9 @@
     border: none;
 }
 
-.inverted {
-    background-color: transparent;
-    outline: none;
-    border: 1px solid var(--invert-bg-color);
-}
-
-.primary {
+.outline {
     background-color: transparent;
     border-width: 1px;
     border-style: solid;
-    border-color: var(--secondary-color, black);
+    border-color: var(--secondary-color);
 }

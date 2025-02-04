@@ -1,4 +1,4 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { buildCssLoader } from "./loaders/buildCssLoader";
 import { BuildOptions } from "./types/config";
 
 export const buildLoaders = (options:BuildOptions) => {
@@ -33,22 +33,7 @@ export const buildLoaders = (options:BuildOptions) => {
         use: "ts-loader",
         exclude: /node_modules/,
     };
-    const cssLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            MiniCssExtractPlugin.loader,
-            {
-                loader: "css-loader",
-                options: {
-                    modules: {
-                        auto: /\.module\./, // *
-                        localIdentName: options.isDev ? "[path][name]__[local]" : "[hash:base64]",
-                    },
-
-                },
-            },
-            "sass-loader"],
-    };
+    const cssLoader = buildCssLoader(options.isDev);
     return [
         babelLoader,
         tsLoader,
