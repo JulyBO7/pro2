@@ -1,19 +1,20 @@
 import { Story } from "@storybook/react";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Theme, ThemeContext } from "../../../../app/providers/theme-context/lib/themeContext";
 
 export const WithThemProviderDecorator = (Story: Story) => {
     const [theme, setTheme] = useState(Theme.LIGHT);
+    const context = useMemo(() => {
+        return {
+            theme,
+            toggleTheme: () => {
+                setTheme((prev) => { return (prev === Theme.LIGHT ? Theme.DARK : Theme.LIGHT); });
+            },
+        };
+    }, [theme]);
     return (
-        <ThemeContext.Provider
-            value={{
-                theme,
-                toggleTheme: () => {
-                    setTheme((prev) => { return (prev === Theme.LIGHT ? Theme.DARK : Theme.LIGHT); });
-                },
-            }}
-        >
+        <ThemeContext.Provider value={context}>
             <Story />
         </ThemeContext.Provider>
     );
