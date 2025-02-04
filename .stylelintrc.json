@@ -5,5 +5,6 @@
       "indentation": [4],
       "scss/double-slash-comment-whitespace-inside":null,
       "number-max-precision": [4,{"ignoreProperties": ["top", "left"]}]
+
    }
   }
