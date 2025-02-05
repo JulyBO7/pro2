@@ -11,7 +11,7 @@ enum AppRoutes {
   NOT_PAGE = "*"
 }
 
-const routePath: Record<AppRoutes, string> = {
+export const routePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: "/",
     [AppRoutes.ABOUT]: "/about",
     [AppRoutes.DESCRIPTION]: "/description",
@@ -20,15 +20,15 @@ const routePath: Record<AppRoutes, string> = {
 
 export const routeConfig: RouteProps[] = [
     {
-        path: routePath[AppRoutes.MAIN],
+        path: routePath.main,
         element: <MainPage />,
     },
     {
-        path: routePath[AppRoutes.ABOUT],
+        path: routePath.about,
         element: <AboutPage />,
     },
     {
-        path: routePath[AppRoutes.DESCRIPTION],
+        path: routePath.description,
         element: <DescriptionPage />,
     },
     {

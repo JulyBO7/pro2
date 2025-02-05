@@ -1,21 +1,60 @@
 .button {
-    min-width: 30px;
-    min-height: 30px;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
+    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    background-color: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.invertedBackground {
+    color: var(--invert-primary-color);
+    background-color: var(--invert-bg-color);
+    border: 1px solid var(--invert-secondary-color);
 }
 
 .clear {
     outline: none;
     padding: 0;
-    margin: 0;
     background: none;
     border: none;
 }
 
 .outline {
-    background-color: transparent;
+    color: var(--primary-color);
     border-width: 1px;
     border-style: solid;
     border-color: var(--secondary-color);
+    background-color: transparent;
+}
+
+.invertedOutline {
+    color: var(--invert-primary-color);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--invert-secondary-color);
+    background-color: transparent;
+}
+
+.square {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+}
+
+.square.sizeM {
+    height: var(--font-line-m);
+    width: var(--font-line-m);
+    font: var(-font-m);
+}
+
+.square.sizeL {
+    height: var(--font-line-l);
+    width: var(--font-line-l);
+    font: var(--font-l);
 }

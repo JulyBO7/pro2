@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames";
-import { AppLink } from "shared/components/app-link";
+import { AppLink, AppLinkTheme } from "shared/components/app-link";
 import cls from "./Navbar.module.scss";
 
 export const Navbar: React.FC = () => {
@@ -9,12 +9,20 @@ export const Navbar: React.FC = () => {
     return (
         <div className={classNames(cls.navbar)}>
             <div className={cls.wrapperLink}>
-                <AppLink to="/about" className={classNames(cls.navbarLink)}>
+                {/* <AppLink
+                    to="/about"
+                    theme={AppLinkTheme.INVERTED_PRIMARY}
+                    className={classNames(cls.navbarLink)}
+                >
                     {t("aboutLink")}
                 </AppLink>
-                <AppLink to="/description" className={classNames(cls.navbarLink)}>
+                <AppLink
+                    theme={AppLinkTheme.INVERTED_PRIMARY}
+                    to="/description"
+                    className={classNames(cls.navbarLink)}
+                >
                     {t("descriptionLink")}
-                </AppLink>
+                </AppLink> */}
             </div>
         </div>
     );

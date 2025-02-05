@@ -25,4 +25,8 @@ describe("check class name", () => {
         expect(classNames("button", {}, [cls[ButtonTheme.OUTLINE]]))
             .toBe("button outline");
     });
+    test("", () => {
+        expect(classNames("button", { square: true, size: "sizeL" }, [cls[ButtonTheme.OUTLINE]]))
+            .toBe("button outline square size");
+    });
 });

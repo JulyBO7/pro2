@@ -25,22 +25,16 @@ export const Primary = Template.bind({}) as typeof Template;
 Primary.args = {
     theme: AppLinkTheme.PRIMARY,
 };
-
-export const Secondary = Template.bind({}) as typeof Template;
-Secondary.args = {
-    theme: AppLinkTheme.SECONDARY,
-};
-
-export const NotUnderline = Template.bind({}) as typeof Template;
-NotUnderline.args = {
-    theme: AppLinkTheme.NOT_UNDERLINE,
-};
-
 export const PrimaryDark = Template.bind({}) as typeof Template;
 PrimaryDark.args = {
     ...Primary.args,
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Secondary = Template.bind({}) as typeof Template;
+Secondary.args = {
+    theme: AppLinkTheme.SECONDARY,
+};
 
 export const SecondaryDark = Template.bind({}) as typeof Template;
 SecondaryDark.args = {
@@ -48,8 +42,12 @@ SecondaryDark.args = {
 };
 SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const NotUnderlineDark = Template.bind({}) as typeof Template;
-NotUnderlineDark.args = {
-    ...NotUnderline.args,
+export const InvertedPrimary = Template.bind({}) as typeof Template;
+InvertedPrimary.args = {
+    theme: AppLinkTheme.INVERTED_PRIMARY,
 };
-NotUnderlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const InvertedSecondary = Template.bind({}) as typeof Template;
+InvertedPrimary.args = {
+    theme: AppLinkTheme.INVERTED_SECONDARY,
+};

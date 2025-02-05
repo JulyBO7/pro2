@@ -1,6 +1,7 @@
 {
   "hello": "HELLO",
   "lang": "English",
+  "shortLang": "En",
   "collapseSidebar": "Collapse",
   "pageNotFound": "Page not found",
   "main": "Main page",

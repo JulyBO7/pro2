@@ -1,10 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "shared/components/button";
+import { Button, ButtonSize, ButtonTheme } from "shared/components/button";
 
-type ToggleLangProps = {};
+type ToggleLangProps = {
+    shortLang: boolean
+};
 
-export const LangSwitcher: React.FC<ToggleLangProps> = () => {
+export const LangSwitcher: React.FC<ToggleLangProps> = ({ shortLang }) => {
     const { t, i18n } = useTranslation();
 
     const switchLang = () => {
@@ -12,8 +14,8 @@ export const LangSwitcher: React.FC<ToggleLangProps> = () => {
     };
 
     return (
-        <Button theme={ButtonTheme.CLEAR} onClick={switchLang}>
-            {t("lang")}
+        <Button theme={ButtonTheme.INVERTED_OUTLINE} size={ButtonSize.M} onClick={switchLang}>
+            {t(shortLang ? "shortLang" : "lang")}
         </Button>
     );
 };

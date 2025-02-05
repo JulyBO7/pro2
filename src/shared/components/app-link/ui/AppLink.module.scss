@@ -3,9 +3,13 @@
 }
 
 .secondary {
+    color: var(--secondary-color);
+}
+
+.invertedPrimary {
     color: var(--invert-primary-color);
 }
 
-.notUnderline {
-    text-decoration: none;
+.invertedSecondary {
+    color: var(--invert-secondary-color);
 }
