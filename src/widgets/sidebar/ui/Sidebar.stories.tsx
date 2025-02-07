@@ -2,8 +2,8 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { WithThemProviderDecorator } from "shared/lib/storybook/decorators/WithThemProvider";
 // import { Theme } from "app/providers/theme-context";
-import { ThemeDecorator } from "shared/lib/storybook";
-import { Theme } from "app/providers/theme-context";
+// import { ThemeDecorator } from "shared/lib/storybook";
+// import { Theme } from "app/providers/theme-context";
 import { Sidebar } from "./Sidebar";
 
 export default {
@@ -24,4 +24,4 @@ const Template: ComponentStory<typeof Sidebar> = (args) => {
 export const Light = Template.bind({}) as typeof Template;
 
 export const Dark = Template.bind({}) as typeof Template;
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+// Dark.decorators = [ThemeDecorator(Theme.DARK)];
