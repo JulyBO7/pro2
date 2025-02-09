@@ -1,0 +1,44 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0 0 0 / 23.7%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+    pointer-events: none; //события мыши не происходят на элементе, но происходят на элементая под ним
+    color: var(--primary-color);
+}
+
+.content {
+    transform: scale(0.5);
+    transition: transform 0.3s;
+    background-color: var(--bg-color);
+    border: 2px solid var(--secondary-color);
+    padding: 10px;
+    width: 50%;
+}
+
+.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.openContent {
+    transform: scale(1);
+}
+
+.isClosed {
+    transform: scale(0.2);
+}
+
+.dark {
+    --primary-color: rgb(59 247 34 / 81.6%);
+    --secondary-color: rgb(10 109 10);
+    --bg-color: rgb(20 20 199);
+}

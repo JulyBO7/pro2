@@ -48,6 +48,6 @@ InvertedPrimary.args = {
 };
 
 export const InvertedSecondary = Template.bind({}) as typeof Template;
-InvertedPrimary.args = {
+InvertedSecondary.args = {
     theme: AppLinkTheme.INVERTED_SECONDARY,
 };

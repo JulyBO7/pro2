@@ -18,11 +18,16 @@
     border: 1px solid var(--invert-secondary-color);
 }
 
-.clear {
+.clear,
+.invertedClear {
     outline: none;
     padding: 0;
     background: none;
     border: none;
+}
+
+.invertedClear {
+    color: var(--invert-primary-color);
 }
 
 .outline {

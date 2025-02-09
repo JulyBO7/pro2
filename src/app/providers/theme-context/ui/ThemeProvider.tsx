@@ -1,16 +1,24 @@
-import { ReactElement, useMemo, useState } from "react";
+import {
+    ReactElement, useCallback, useMemo, useState,
+} from "react";
 import { Theme, ThemeContext } from "../lib/themeContext";
 
-export const ThemeProvider = ({ children }: { children: ReactElement }) => {
+type ThemeProviderProps ={
+    children: ReactElement
+    initialTheme?: Theme
+}
+export const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
     const [theme, setTheme] = useState<Theme>(
-        (localStorage.getItem("theme") as Theme) ?? Theme.LIGHT,
+        (localStorage.getItem("theme") as Theme) ?? initialTheme ?? Theme.LIGHT,
     );
-    const toggleTheme = () => {
+
+    const toggleTheme = useCallback(() => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
         setTheme(newTheme);
         localStorage.setItem("theme", newTheme);
-    };
-    const providerValue = useMemo(() => { return { theme, toggleTheme }; }, [theme]);
+    }, [theme]);
+
+    const providerValue = useMemo(() => { return { theme, toggleTheme }; }, [theme, toggleTheme]);
 
     return (
         <ThemeContext.Provider value={providerValue}>
