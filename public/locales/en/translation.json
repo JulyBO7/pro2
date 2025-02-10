@@ -9,5 +9,7 @@
   "reload": "Reload",
   "aboutLink": "About", 
   "descriptionLink": "Description",
-  "bugButton": "test bag"
+  "bugButton": "Test bag",
+  "signIn": "Sign in"
+
 }
