@@ -7,10 +7,10 @@ type ThemeProviderProps ={
     children: ReactElement
     initialTheme?: Theme
 }
+
 export const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
-    const [theme, setTheme] = useState<Theme>(
-        (localStorage.getItem("theme") as Theme) ?? initialTheme ?? Theme.LIGHT,
-    );
+    const currentTheme = localStorage.getItem("theme") as Theme;
+    const [theme, setTheme] = useState<Theme>(currentTheme || initialTheme || Theme.LIGHT);
 
     const toggleTheme = useCallback(() => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;

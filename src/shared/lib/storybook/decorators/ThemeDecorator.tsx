@@ -1,4 +1,3 @@
-import React from "react";
 import { Theme, ThemeProvider } from "../../../../app/providers/theme-context";
 
 export const ThemeDecorator = (theme: Theme) => {

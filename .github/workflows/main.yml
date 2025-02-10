@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 17.x ]
-
+        cache: 'npm'
     steps:
       - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
