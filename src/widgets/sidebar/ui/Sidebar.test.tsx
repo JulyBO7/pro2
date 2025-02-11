@@ -1,25 +1,24 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
-import { renderWithTranslation }
-    from "shared/lib/tests/helpers/renderWithTranslation";
-import { renderWithRoute } from "shared/lib/tests/helpers/renderWithRoute";
+import { renderComponent } from "shared/lib/tests/renderComponent";
+import userEvent from "@testing-library/user-event";
 import { Sidebar } from "./Sidebar";
 
 describe("Sidebar component", () => {
     test("sidebar in the document", () => {
-        render(renderWithRoute(renderWithTranslation(<Sidebar />)));
+        renderComponent(<Sidebar />);
         expect(screen.getByTestId("sidebar")).toBeInTheDocument();
     });
     test("sidebar collapsed", () => {
-        render(renderWithRoute(renderWithTranslation(<Sidebar />)));
-        fireEvent.click(screen.getByTestId("sidebarBtn"));
+        renderComponent(<Sidebar />);
+        userEvent.click(screen.getByTestId("sidebarBtn"));
         expect(screen.getByTestId("sidebar")).toHaveClass("sidebar collapsedSidebar");
         screen.debug();
     });
     test("sidebar not collapsed", () => {
-        render(renderWithRoute(renderWithTranslation(<Sidebar />)));
-        fireEvent.click(screen.getByTestId("sidebarBtn"));
-        fireEvent.click(screen.getByTestId("sidebarBtn"));
+        renderComponent(<Sidebar />);
+        userEvent.click(screen.getByTestId("sidebarBtn"));
+        userEvent.click(screen.getByTestId("sidebarBtn"));
         expect(screen.getByTestId("sidebar")).toHaveClass("sidebar");
         screen.debug();
     });

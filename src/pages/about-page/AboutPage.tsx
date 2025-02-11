@@ -1,4 +1,4 @@
-// eslint-disable-next-line quotes
+import { Counter } from "entities/counter";
 import { useTranslation } from "react-i18next";
 
 const AboutPage = () => {
@@ -7,6 +7,8 @@ const AboutPage = () => {
     return (
         <div>
             <h1>{t("about")}</h1>
+            <Counter />
+
         </div>
     );
 };

@@ -4,7 +4,7 @@ import {
     useCallback,
 
 } from "react";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/helpers/classNames";
 import { Portal } from "shared/components/portal";
 import { useTheme } from "app/providers/theme-context";
 import cls from "./Modal.module.scss";

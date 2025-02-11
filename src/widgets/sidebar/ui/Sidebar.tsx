@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { ToggleThem } from "widgets/toggle-theme";
 import { LangSwitcher } from "widgets/lang-switcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/components/button";
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/helpers/classNames";
 
 import { AppLink, AppLinkTheme } from "shared/components/app-link";
 import { useTranslation } from "react-i18next";

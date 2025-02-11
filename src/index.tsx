@@ -1,4 +1,5 @@
 import { render } from "react-dom";
+import { StoreProvider } from "app/providers/store-provider";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "app/App";
 import { ThemeProvider } from "./app/providers/theme-context/ui/ThemeProvider";
@@ -9,16 +10,14 @@ import "app/styles/index.scss";
 const root = document.getElementById("root");
 
 render(
-    <BrowserRouter>
-        <ErrorBoundary>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </ErrorBoundary>
-    </BrowserRouter>,
+    <StoreProvider>
+        <BrowserRouter>
+            <ErrorBoundary>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </ErrorBoundary>
+        </BrowserRouter>
+    </StoreProvider>,
     root,
 );
-
-// import {foo} from './test'
-
-// console.log(foo(35,5))

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { classNames } from "shared/lib/classNames";
+import { classNames } from "shared/lib/helpers/classNames";
 import { Modal } from "shared/components/modal/ui/Modal";
 import { Button, ButtonTheme } from "shared/components/button";
 import { useTranslation } from "react-i18next";
