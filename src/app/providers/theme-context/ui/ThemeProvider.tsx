@@ -19,6 +19,7 @@ export const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) =>
     }, [theme]);
 
     const providerValue = useMemo(() => { return { theme, toggleTheme }; }, [theme, toggleTheme]);
+    document.body.className = theme;
 
     return (
         <ThemeContext.Provider value={providerValue}>

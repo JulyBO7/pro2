@@ -12,7 +12,6 @@
     transition: opacity 0.3s;
     z-index: 10;
     pointer-events: none; //события мыши не происходят на элементе, но происходят на элементая под ним
-    color: var(--primary-color);
 }
 
 .content {
@@ -27,18 +26,8 @@
 .open {
     opacity: 1;
     pointer-events: auto;
-}
 
-.openContent {
-    transform: scale(1);
-}
-
-.isClosed {
-    transform: scale(0.2);
-}
-
-.dark {
-    --primary-color: rgb(59 247 34 / 81.6%);
-    --secondary-color: rgb(10 109 10);
-    --bg-color: rgb(20 20 199);
+    .content {
+        transform: scale(1);
+    }
 }

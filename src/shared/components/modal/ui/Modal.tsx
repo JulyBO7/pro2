@@ -48,7 +48,7 @@ export const Modal:FC<ModalProps> = ({ children, onClose, isOpen }) => {
             >
                 <div
                     onClick={onContentClick}
-                    className={classNames(cls.content, { [cls.openContent]: isOpen })}
+                    className={classNames(cls.content)}
                 >
                     {children}
                 </div>
