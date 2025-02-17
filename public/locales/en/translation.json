@@ -10,6 +10,8 @@
   "aboutLink": "About", 
   "descriptionLink": "Description",
   "bugButton": "Test bag",
-  "signIn": "Sign in"
+  "signIn": "Sign in",
+  "enterName": "Enter name",
+  "enterPassword": "Enter password"
 
 }

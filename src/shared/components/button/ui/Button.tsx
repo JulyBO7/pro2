@@ -37,15 +37,14 @@ export const Button: FC<ButtonProps> = ({
         [cls[theme], cls[size], className],
     );
     return (
-        <div>
-            <button
-                type="button"
-                className={buttonClasses}
-                onClick={onClick}
-                {...otherProps}
-            >
-                {children}
-            </button>
-        </div>
+        <button
+            type="button"
+            className={buttonClasses}
+            onClick={onClick}
+            {...otherProps}
+        >
+            {children}
+        </button>
+
     );
 };

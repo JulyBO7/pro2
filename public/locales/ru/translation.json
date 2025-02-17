@@ -10,5 +10,7 @@
   "aboutLink": "О чем", 
   "descriptionLink": "Описание",
   "bugButton": "тестовая ошибка",
-  "signIn": "Вход"
+  "signIn": "Вход",
+  "enterName": "Введите имя",
+  "enterPassword": "Введите пароль"
 }

@@ -1,0 +1,55 @@
+.input {
+    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    width: 100%;
+    padding: 5px 10px;
+    color: inherit;
+    position: relative;
+    caret-color: transparent;//убрать мигающтй курсор
+    font: var(--font-m);
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: var(--secondary-color);
+    }
+}
+
+input.hide-cursor::placeholder {
+    color: #000;
+}
+
+.clear {
+    border: none;
+    outline: none;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.caret {
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    width: 9px;
+    height: 3px;
+    animation: 0.7s infinite normal flashing;
+    background-color: var(--primary-color);
+}
+
+@keyframes flashing {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.01;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
