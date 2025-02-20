@@ -12,5 +12,7 @@
   "bugButton": "тестовая ошибка",
   "signIn": "Вход",
   "enterName": "Введите имя",
-  "enterPassword": "Введите пароль"
+  "enterPassword": "Введите пароль",
+  "signOut": "Выход"
+
 }

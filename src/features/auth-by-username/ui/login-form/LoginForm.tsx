@@ -1,29 +1,36 @@
-import { useEffect, useState } from "react";
 import { Button, ButtonTheme } from "shared/components/button";
 import { Input, InputTheme } from "shared/components/input";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { setPassword, setUsername } from "../../model/slice/loginSlice";
 import cls from "./LoginForm.module.scss";
+import { selectLoginForm } from "../../model/selectors/login-form-selector/selectLoginForm";
+import { loginByUserName } from "../../model/services/login-by-username/loginByUserName";
 
-export const AuthForm = ({ reset, autofocus }: {reset: boolean, autofocus: boolean }) => {
+export const LoginForm = ({ autofocus }: {autofocus: boolean }) => {
     const { t } = useTranslation();
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    const { userName, password, error } = useSelector(selectLoginForm);
+    const dispatch = useDispatch();
 
     const onChangeUserName = (value: string) => {
-        setUserName(value);
+        dispatch(setUsername(value));
     };
     const onChangePassword = (value: string) => {
-        setPassword(value);
+        dispatch(setPassword(value));
     };
-    useEffect(() => {
-        if (reset) {
-            setUserName("");
-            setPassword("");
-        }
-    }, [reset]);
+    const onClickLoginFormButton = () => {
+        dispatch(loginByUserName({ username: userName, password }));
+    };
+    // useEffect(() => {
+    //     if (reset) {
+    //         setUserName("");
+    //         setPassword("");
+    //     }
+    // }, [reset]);
 
     return (
         <div className={cls.formContainer}>
+            {error && <p style={{ color: "red" }}>{error}</p>}
             <Input
                 autoFocus={autofocus}
                 placeholder={t("enterName")}
@@ -42,6 +49,7 @@ export const AuthForm = ({ reset, autofocus }: {reset: boolean, autofocus: boole
                 theme={InputTheme.CLEAR}
             />
             <Button
+                onClick={onClickLoginFormButton}
                 theme={ButtonTheme.OUTLINE}
                 className={cls.button}
             >
@@ -50,3 +58,9 @@ export const AuthForm = ({ reset, autofocus }: {reset: boolean, autofocus: boole
         </div>
     );
 };
+
+// () => {
+//     fetch("http://localhost:3000/posts")
+//         .then((response) => { return response.json(); })
+//         .then((res) => { return console.log(res); });
+// }

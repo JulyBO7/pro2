@@ -12,6 +12,7 @@
   "bugButton": "Test bag",
   "signIn": "Sign in",
   "enterName": "Enter name",
-  "enterPassword": "Enter password"
+  "enterPassword": "Enter password",
+  "signOut": "Sign out"
 
 }
