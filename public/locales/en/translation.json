@@ -13,6 +13,7 @@
   "signIn": "Sign in",
   "enterName": "Enter name",
   "enterPassword": "Enter password",
-  "signOut": "Sign out"
+  "signOut": "Sign out",
+  "loginForm": "Login form"
 
 }

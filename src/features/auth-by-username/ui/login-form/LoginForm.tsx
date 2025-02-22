@@ -2,14 +2,17 @@ import { Button, ButtonTheme } from "shared/components/button";
 import { Input, InputTheme } from "shared/components/input";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import { Text, TextThem } from "shared/components/text";
 import { setPassword, setUsername } from "../../model/slice/loginSlice";
 import cls from "./LoginForm.module.scss";
 import { selectLoginForm } from "../../model/selectors/login-form-selector/selectLoginForm";
 import { loginByUserName } from "../../model/services/login-by-username/loginByUserName";
 
-export const LoginForm = ({ autofocus }: {autofocus: boolean }) => {
+export const LoginForm = ({ autofocus }: {autofocus?: boolean }) => {
     const { t } = useTranslation();
-    const { userName, password, error } = useSelector(selectLoginForm);
+    const {
+        userName, password, error, isLoading,
+    } = useSelector(selectLoginForm);
     const dispatch = useDispatch();
 
     const onChangeUserName = (value: string) => {
@@ -21,16 +24,11 @@ export const LoginForm = ({ autofocus }: {autofocus: boolean }) => {
     const onClickLoginFormButton = () => {
         dispatch(loginByUserName({ username: userName, password }));
     };
-    // useEffect(() => {
-    //     if (reset) {
-    //         setUserName("");
-    //         setPassword("");
-    //     }
-    // }, [reset]);
 
     return (
         <div className={cls.formContainer}>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <Text text={error} theme={TextThem.ERROR} />}
+            <Text title={t("loginForm")} />
             <Input
                 autoFocus={autofocus}
                 placeholder={t("enterName")}
@@ -49,6 +47,7 @@ export const LoginForm = ({ autofocus }: {autofocus: boolean }) => {
                 theme={InputTheme.CLEAR}
             />
             <Button
+                disabled={isLoading}
                 onClick={onClickLoginFormButton}
                 theme={ButtonTheme.OUTLINE}
                 className={cls.button}
@@ -58,9 +57,3 @@ export const LoginForm = ({ autofocus }: {autofocus: boolean }) => {
         </div>
     );
 };
-
-// () => {
-//     fetch("http://localhost:3000/posts")
-//         .then((response) => { return response.json(); })
-//         .then((res) => { return console.log(res); });
-// }

@@ -25,8 +25,16 @@ export const loginByUserName = createAsyncThunk<LoginByUserNameResponse, LoginBy
 
             return response.data;
         } catch (e) {
-            console.log(e);
-            return thunkAPI.rejectWithValue(e.message);
+            let error = e.message;
+            if (axios.isAxiosError(e)) {
+                if (e.response) {
+                    error = e.response.data.message;
+                } else {
+                    error = e.message;
+                }
+            }
+            console.dir(e);
+            return thunkAPI.rejectWithValue(error);
         }
     },
 );

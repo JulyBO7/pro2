@@ -13,6 +13,6 @@
   "signIn": "Вход",
   "enterName": "Введите имя",
   "enterPassword": "Введите пароль",
-  "signOut": "Выход"
-
+  "signOut": "Выход",
+  "loginForm": "Форма авторизации"
 }

@@ -1,5 +1,5 @@
-import React, {
-    ChangeEvent, InputHTMLAttributes, useEffect, useRef, useState,
+import {
+    ChangeEvent, FC, InputHTMLAttributes, useEffect, useRef, useState,
 } from "react";
 import { classNames } from "shared/lib/helpers/classNames";
 import cls from "./Input.module.scss";
@@ -18,7 +18,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChan
     autoFocus?: boolean
 }
 
-export const Input:React.FC<InputProps> = (props) => {
+export const Input:FC<InputProps> = (props) => {
     const {
         type = "text", value, onChange, className, caret, theme, placeholder, autoFocus, ...rest
     } = props;
