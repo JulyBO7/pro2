@@ -6,6 +6,10 @@ import { BuildOptions } from "./types/config";
 
 export const buildPlugins = (options:BuildOptions) => {
     const { paths, isDev } = options;
+    const devPlugins: webpack.WebpackPluginInstance[] = [];
+    if (isDev) {
+        devPlugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    }
     return [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -15,6 +19,6 @@ export const buildPlugins = (options:BuildOptions) => {
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new BundleAnalyzerPlugin({ openAnalyzer: false }),
+        ...devPlugins,
     ];
 };
