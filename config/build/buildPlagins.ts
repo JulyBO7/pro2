@@ -19,7 +19,6 @@ export const buildPlugins = (options:BuildOptions) => {
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new webpack.HotModuleReplacementPlugin(),
-        // ...devPlugins,
-        new BundleAnalyzerPlugin({ openAnalyzer: false }),
+        ...devPlugins,
     ];
 };
