@@ -31,6 +31,7 @@ export const AsyncReducersLoader:FC<AsyncReducersLoaderProps> = ({ children, red
                 });
             }
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
