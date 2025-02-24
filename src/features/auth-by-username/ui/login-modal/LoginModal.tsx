@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Modal } from "shared/components/modal";
+import { Loader } from "shared/components/loader";
 import cls from "./LoginModal.module.scss";
-import { LoginForm } from "../login-form/LoginForm";
+import { LoginFormAsync } from "../login-form/LoginFormAsync";
 
 type AuthModalProps = {
     isOpen: boolean
@@ -11,7 +12,9 @@ type AuthModalProps = {
 export const LoginModal:React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     return (
         <Modal isOpen={isOpen} onClose={onClose} className={cls.modal} lazy>
-            <LoginForm autofocus={isOpen} />
+            <Suspense fallback={<Loader />}>
+                <LoginFormAsync autofocus={isOpen} />
+            </Suspense>
         </Modal>
     );
 };

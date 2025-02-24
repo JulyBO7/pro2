@@ -3,23 +3,25 @@ import { StoreDecorator, ThemeDecorator } from "shared/lib/storybook";
 import { Theme } from "app/providers/theme-context";
 import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/store-provider";
-import { LoginForm } from "./LoginForm";
+import { loginReducer } from "features/auth-by-username";
+import LoginForm from "./LoginForm";
 
 const state: DeepPartial<StateSchema> = {
     loginForm:
     {
-        userName: "",
+        userName: "admin",
         isLoading: false,
-        password: "",
+        password: "123",
     },
 };
 const stateWithError: DeepPartial<StateSchema> = {
     loginForm: { ...state.loginForm, error: "ERROR" },
 };
+
 export default {
     title: "features/LoginForm",
     component: LoginForm,
-    decorators: [StoreDecorator(state)],
+    decorators: [StoreDecorator(state, { loginForm: loginReducer })],
 } as ComponentMeta<typeof LoginForm>;
 
 const Template: ComponentStory<typeof LoginForm> = (args) => {
@@ -32,7 +34,10 @@ export const DefaultDark = Template.bind({}) as typeof Template;
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const WithError = Template.bind({}) as typeof Template;
-WithError.decorators = [StoreDecorator(stateWithError)];
+WithError.decorators = [StoreDecorator(stateWithError, { loginForm: loginReducer })];
 
 export const WithErrorDark = Template.bind({}) as typeof Template;
-WithErrorDark.decorators = [StoreDecorator(stateWithError), ThemeDecorator(Theme.DARK)];
+WithErrorDark.decorators = [StoreDecorator(
+    stateWithError,
+    { loginForm: loginReducer },
+), ThemeDecorator(Theme.DARK)];
