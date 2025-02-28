@@ -6,10 +6,8 @@ type PageLoaderProps = {
 
 }
 
-export const PageLoader:FC<PageLoaderProps> = () => {
-    return (
-        <div className={cls.pageLoader}>
-            <Loader />
-        </div>
-    );
-};
+export const PageLoader:FC<PageLoaderProps> = () => (
+    <div className={cls.pageLoader}>
+        <Loader />
+    </div>
+);

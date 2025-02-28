@@ -9,12 +9,10 @@ type AuthModalProps = {
     onClose: ()=> void
 }
 
-export const LoginModal:React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
-    return (
-        <Modal isOpen={isOpen} onClose={onClose} className={cls.modal} lazy>
-            <Suspense fallback={<Loader />}>
-                <LoginFormAsync autofocus={isOpen} />
-            </Suspense>
-        </Modal>
-    );
-};
+export const LoginModal:React.FC<AuthModalProps> = ({ isOpen, onClose }) => (
+    <Modal isOpen={isOpen} onClose={onClose} className={cls.modal} lazy>
+        <Suspense fallback={<Loader />}>
+            <LoginFormAsync autofocus={isOpen} onSuccess={onClose} />
+        </Suspense>
+    </Modal>
+);

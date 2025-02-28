@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { userActions } from "entities/user";
-import { LOCAL_STORAGE_LOGIN_KEY } from "../../../../../shared/const/localStorage";
+import { ThunkArg } from "app/providers/store-provider";
+import { LOCAL_STORAGE_LOGIN_KEY } from "shared/const/localStorage";
 
 interface LoginByUserNameArg {
     username: string
@@ -12,11 +12,12 @@ interface LoginByUserNameResponse {
     password: string
     id: number
 }
-export const loginByUserName = createAsyncThunk<LoginByUserNameResponse, LoginByUserNameArg, { rejectValue: string }>(
+
+export const loginByUserName = createAsyncThunk<LoginByUserNameResponse, LoginByUserNameArg, ThunkArg<string>>(
     "login/loginByUserName",
     async (login, thunkAPI) => {
         try {
-            const response = await axios.post<LoginByUserNameResponse>("http://localhost:8000/login", login);
+            const response = await thunkAPI.extra.api.post<LoginByUserNameResponse>("/login", login);
             if (!response.data) {
                 throw Error("user not found!");
             }
@@ -25,16 +26,17 @@ export const loginByUserName = createAsyncThunk<LoginByUserNameResponse, LoginBy
 
             return response.data;
         } catch (e) {
-            let error = e.message;
-            if (axios.isAxiosError(e)) {
-                if (e.response) {
-                    error = e.response.data.message;
-                } else {
-                    error = e.message;
-                }
-            }
+            // const error = e as Error;
+            // const errorMessage = error.message;
+            // if (axios.isAxiosError(e)) {
+            //     if (e.response?.data) {
+            //         errorMessage = e.response.data.message;
+            //     } else {
+            //         errorMessage = e.message;
+            //     }
+            // }
             console.dir(e);
-            return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue("error");
         }
     },
 );

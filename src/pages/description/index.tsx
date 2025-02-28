@@ -1,1 +1,1 @@
-export { DescriptionPageAsync as DescriptionPage } from "./DescriptionPageAsync";
+export { DescriptionPageAsync as DescriptionPage } from "./ui/DescriptionPageAsync";

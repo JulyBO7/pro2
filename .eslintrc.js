@@ -46,7 +46,6 @@ module.exports = {
                 markupOnly: true,
                 ignoreAttribute: ["data-testid", "to"],
             }],
-        "arrow-body-style": ["error", "always"],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "react/jsx-props-no-spreading": "off",
@@ -55,6 +54,7 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "no-param-reassign": "off",
+        "no-undef": "off",
     },
     globals: {
         __IS_DEV__: true,

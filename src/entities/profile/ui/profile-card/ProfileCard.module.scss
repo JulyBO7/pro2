@@ -1,0 +1,19 @@
+.container {
+    // display: flex;
+    // flex-direction: column;
+    border: 2px solid var(--invert-bg-color);
+    min-height: 300px;
+    max-width: 300px;
+    padding: 20px;
+    position: relative;
+}
+
+.textItem {
+    margin-bottom: 20px;
+}
+
+.button {
+    position: absolute;
+    bottom: 20px;
+    left: 200px;
+}

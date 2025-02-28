@@ -33,23 +33,6 @@
     margin-top: 20px;
 }
 
-.appLink {
-    text-decoration: none;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.link {
-    margin-left: 20px;
-    opacity: 1;
-    transition: opacity 0.2s;
-}
-
-.lincIcon {
-    fill: var(--invert-primary-color);
-}
-
 .collapsedSidebar {
     width: var(--sidevar-collapsed-width);
 
@@ -62,8 +45,8 @@
         gap: 10px;
     }
 
-    .link {
-        opacity: 0;
-        width: 0;
-    }
+    // .link {
+    //     opacity: 0;
+    //     width: 0;
+    // }
 }

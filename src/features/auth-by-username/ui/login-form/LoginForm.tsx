@@ -1,9 +1,10 @@
 import { Button, ButtonTheme } from "shared/components/button";
 import { Input, InputTheme } from "shared/components/input";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Text, TextThem } from "shared/components/text";
-import { AsyncReducersLoader } from "shared/additional-components/AsyncReducersLoader";
+import { AsyncReducersLoader } from "shared/lib/components/AsyncReducersLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import { selectError } from "../../model/selectors/error-selector/selectError";
 import { selectIsLoading } from "../../model/selectors/isloading-selector/selectIsLoading";
 import { loginReducer, setPassword, setUsername } from "../../model/slice/loginSlice";
@@ -12,14 +13,18 @@ import { loginByUserName } from "../../model/services/login-by-username/loginByU
 import { selectUserName } from "../../model/selectors/username-selector/selectUserName";
 import { selectPassword } from "../../model/selectors/password-selector/selectPassword";
 
-const LoginForm = ({ autofocus }: {autofocus?: boolean }) => {
+type LoginFormProps = {
+    autofocus?: boolean
+    onSuccess?: ()=> void
+}
+const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
 
     const password = useSelector(selectPassword);
     const error = useSelector(selectError);
     const isLoading = useSelector(selectIsLoading);
     const userName = useSelector(selectUserName);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onChangeUserName = (value: string) => {
         dispatch(setUsername(value));
@@ -27,12 +32,15 @@ const LoginForm = ({ autofocus }: {autofocus?: boolean }) => {
     const onChangePassword = (value: string) => {
         dispatch(setPassword(value));
     };
-    const onClickLoginFormButton = () => {
-        dispatch(loginByUserName({ username: userName, password }));
+    const onClickLoginFormButton = async () => {
+        const res = await dispatch(loginByUserName({ username: userName, password }));
+        if (res.meta.requestStatus === "fulfilled") {
+            onSuccess?.();
+        }
     };
     const asyncLoginReducer = { loginForm: loginReducer };
     return (
-        <AsyncReducersLoader reducers={asyncLoginReducer} removeAfterUnmount={false}>
+        <AsyncReducersLoader reducers={asyncLoginReducer}>
             <div className={cls.formContainer}>
                 {error && <Text text={error} theme={TextThem.ERROR} />}
                 <Text title={t("loginForm")} />

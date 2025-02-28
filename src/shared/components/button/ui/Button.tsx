@@ -26,7 +26,7 @@ export const Button: FC<ButtonProps> = ({
     className,
     onClick,
     square,
-    size,
+    size = ButtonSize.M,
     disabled,
     theme = ButtonTheme.BACKGROUND,
     ...otherProps

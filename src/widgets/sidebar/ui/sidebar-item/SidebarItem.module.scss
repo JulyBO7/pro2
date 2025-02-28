@@ -1,0 +1,23 @@
+.appLink {
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    margin-left: 20px;
+    opacity: 1;
+    transition: opacity 0.1s;
+}
+
+.lincIcon {
+    fill: var(--invert-primary-color);
+}
+
+.collapsed {
+    .link {
+        opacity: 0;
+        width: 0;
+    }
+}

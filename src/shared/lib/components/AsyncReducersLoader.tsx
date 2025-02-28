@@ -1,7 +1,8 @@
 import { Reducer } from "@reduxjs/toolkit";
 import { StateSchemaKey, StoreWithReduceManager } from "app/providers/store-provider";
 import { FC, ReactNode, useEffect } from "react";
-import { useDispatch, useStore } from "react-redux";
+import { useStore } from "react-redux";
+import { useAppDispatch } from "../hooks/useAppDispatch";
 
 type ReducersList = {
     [name in StateSchemaKey]?: Reducer
@@ -11,27 +12,24 @@ type AsyncReducersLoaderProps = {
     children: ReactNode
     removeAfterUnmount?: boolean;
 }
-type ReducersListEntry = [StateSchemaKey, Reducer]
 
 export const AsyncReducersLoader:FC<AsyncReducersLoaderProps> = ({ children, reducers, removeAfterUnmount = true }) => {
     const store = useStore() as StoreWithReduceManager;
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
-            store.reducerManager.add(name, reducer);
+        Object.entries(reducers).forEach(([name, reducer]) => {
+            store.reducerManager.add(name as StateSchemaKey, reducer);
             dispatch({ type: `@INIT ${name} reducer` });
         });
-
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([name]: ReducersListEntry) => {
-                    store.reducerManager.remove(name);
+                Object.entries(reducers).forEach(([name]) => {
+                    store.reducerManager.remove(name as StateSchemaKey);
                     dispatch({ type: `@DESTROY ${name} reducer` });
                 });
             }
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

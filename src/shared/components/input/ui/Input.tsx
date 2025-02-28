@@ -5,7 +5,8 @@ import { classNames } from "shared/lib/helpers/classNames";
 import cls from "./Input.module.scss";
 
 export enum InputTheme{
-    CLEAR="clear"
+    CLEAR="clear",
+    PRIMARY="primary"
 }
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value"> {
     type?: string,
@@ -20,14 +21,14 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChan
 
 export const Input:FC<InputProps> = (props) => {
     const {
-        type = "text", value, onChange, className, caret, theme, placeholder, autoFocus, ...rest
+        type = "text", value, onChange, className, caret, theme = InputTheme.PRIMARY, placeholder, autoFocus, ...rest
     } = props;
     const [caretPosition, setCaretPosition] = useState(0);
     const [isFocus, setIsFocus] = useState(false);
 
     const symbolWidth = 9;
 
-    const inputRef = useRef(null);
+    const inputRef = useRef<null | HTMLInputElement>(null);
 
     const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
         const newValue = e.currentTarget.value;
@@ -46,7 +47,7 @@ export const Input:FC<InputProps> = (props) => {
     useEffect(() => {
         if (autoFocus) {
             setIsFocus(true);
-            inputRef.current.focus();
+            inputRef.current?.focus();
         }
     }, [autoFocus]);
     return (

@@ -5,19 +5,15 @@ import { PageLoader } from "widgets/page-loader";
 import { BagButton } from "app/providers/error-boundary";
 import cls from "./AppRouter.module.scss";
 
-export const AppRouter = () => {
-    return (
-        <div className={cls.routesContainer}>
-            <Suspense fallback={<PageLoader />}>
-                <Routes>
-                    {routeConfig.map(({ path, element }) => {
-                        return (
-                            <Route path={path} element={element} key={path} />
-                        );
-                    })}
-                </Routes>
-                <BagButton />
-            </Suspense>
-        </div>
-    );
-};
+export const AppRouter = () => (
+    <div className={cls.routesContainer}>
+        <Suspense fallback={<PageLoader />}>
+            <Routes>
+                {routeConfig.map(({ path, element }) => (
+                    <Route path={path} element={element} key={path} />
+                ))}
+            </Routes>
+            <BagButton />
+        </Suspense>
+    </div>
+);
