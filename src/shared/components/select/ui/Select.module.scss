@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.select {
+    background-color: var(--bg-color);
+    padding: 3px;
+    outline: none;
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.span {
+    display: inline-block;
+    margin-right: 10px;
+}

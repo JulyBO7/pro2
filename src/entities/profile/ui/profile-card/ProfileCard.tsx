@@ -1,23 +1,127 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
-import { Button } from "shared/components/button";
-import { Text } from "shared/components/text";
-import { selectProfileData } from "../../model/selectors/profile-data-selector/selectProfileData";
+import { Input, InputTheme } from "shared/components/input";
+import { useTranslation } from "react-i18next";
+import { Loader } from "shared/components/loader";
+import { TextThem, Text } from "shared/components/text";
+import { Avatar } from "shared/components/avatar/ui/Avatar";
+import { Country, Currency } from "shared/const/common";
 import cls from "./ProfileCard.module.scss";
+import { Profile } from "../../model/types/profile";
+import { Select } from "../../../../shared/components/select/ui/Select";
 
 type ProfileCardProps = {
+    profile?: Profile
+    readonly?: boolean
+    error?: string
+    isLoading?: boolean
+    onChangeFirstName?: (value: string)=> void
+    onChangeLastName?: (value: string)=> void
+    onChangeAge?: (value: string)=> void
+    onChangeCity?: (value: string)=> void
+    onChangeCountry?: (value: string)=> void
+    onChangeCurrency?: (value: string)=> void
 
 }
 
-export const ProfileCard:FC<ProfileCardProps> = ({}) => {
-    const profile = useSelector(selectProfileData);
+const countries = [
+    { value: Country.Armenia, text: Country.Armenia },
+    { value: Country.Belarus, text: Country.Belarus },
+    { value: Country.Kazakhstan, text: Country.Kazakhstan },
+    { value: Country.Russia, text: Country.Russia },
+    { value: Country.Ukraine, text: Country.Ukraine },
+];
+const currencies = [
+    { value: Currency.EUR, text: Currency.EUR },
+    { value: Currency.RUB, text: Currency.RUB },
+    { value: Currency.USD, text: Currency.USD },
+];
 
+export const ProfileCard:FC<ProfileCardProps> = (props) => {
+    const {
+        profile,
+        readonly,
+        error,
+        isLoading,
+        onChangeFirstName,
+        onChangeLastName,
+        onChangeAge,
+        onChangeCity,
+        onChangeCountry,
+        onChangeCurrency,
+    } = props;
+
+    const { t } = useTranslation("profilePage");
+
+    if (isLoading) {
+        return (
+            <div className={cls.container}>
+                <div className={cls.loaderWrap}>
+                    <Loader />
+                </div>
+            </div>
+        );
+    }
+    if (error) {
+        return (
+            <div className={cls.container}>
+                <div className={cls.errorWrap}>
+                    <Text className={cls.error} title={error} theme={TextThem.ERROR} />
+                </div>
+            </div>
+        );
+    }
     return (
         <div className={cls.container}>
-            <Text text={profile?.first} className={cls.textItem} />
-            <Text text={profile?.lastname} className={cls.textItem} />
+            <Avatar text="profile" src={profile?.avatar} className={cls.avatar} />
+            <Input
+                placeholder={String(t("name"))}
+                theme={InputTheme.CLEAR}
+                caret
+                readOnly={readonly}
+                value={profile?.first}
+                onChange={onChangeFirstName}
+            />
+            <Input
+                placeholder={String(t("lastName"))}
+                theme={InputTheme.CLEAR}
+                caret
+                readOnly={readonly}
+                value={profile?.lastname}
+                onChange={onChangeLastName}
+            />
+            <Input
+                placeholder={String(t("age"))}
+                theme={InputTheme.CLEAR}
+                caret
+                readOnly={readonly}
+                value={profile?.age}
+                onChange={onChangeAge}
+            />
+            <Input
+                placeholder={String(t("city"))}
+                theme={InputTheme.CLEAR}
+                caret
+                readOnly={readonly}
+                value={profile?.city}
+                onChange={onChangeCity}
+            />
+            <Select
+                onChange={onChangeCountry}
+                className={cls.selector}
+                options={countries}
+                label={t("choiceCountry")}
+                disabled={readonly}
+                value={profile?.country}
+            />
+            <Select
+                onChange={onChangeCurrency}
+                className={cls.selector}
+                options={currencies}
+                label={t("choiceCurrency")}
+                disabled={readonly}
+                value={profile?.currency}
+            />
 
-            <Button className={cls.button}>click me</Button>
         </div>
     );
 };

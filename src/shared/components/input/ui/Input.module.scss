@@ -21,6 +21,16 @@ input.hide-cursor::placeholder {
     color: #000;
 }
 
+.inputWithPlaceholder {
+    display: flex;
+    align-items: center;
+}
+
+.wrapInput {
+    flex-grow: 1;
+    position: relative;
+}
+
 .clear {
     border: none;
     outline: none;

@@ -1,21 +1,21 @@
 import { FC } from "react";
 import "./Loader.scss";
+import { classNames } from "shared/lib/helpers/classNames";
 
-type LoaderProps = {}
+type LoaderProps = {
+}
 
-export const Loader:FC<LoaderProps> = () => {
-    return (
+export const Loader:FC<LoaderProps> = () => (
 
-        <div className="lds-roller">
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-        </div>
+    <div className={classNames("lds-roller")}>
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+    </div>
 
-    );
-};
+);

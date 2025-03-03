@@ -39,6 +39,12 @@
     background-color: transparent;
 }
 
+.outlineRed {
+    border-color: var(--primary-error-color);
+    background-color: transparent;
+    color: var(--primary-error-color);
+}
+
 .invertedOutline {
     color: var(--invert-primary-color);
     border-width: 1px;

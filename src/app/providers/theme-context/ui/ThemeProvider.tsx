@@ -18,7 +18,7 @@ export const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) =>
         localStorage.setItem("theme", newTheme);
     }, [theme]);
 
-    const providerValue = useMemo(() => { return { theme, toggleTheme }; }, [theme, toggleTheme]);
+    const providerValue = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
     document.body.className = theme;
 
     return (

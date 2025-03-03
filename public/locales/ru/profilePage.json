@@ -1,4 +1,17 @@
 {
-"descriptionProfilePage": "Описание страницы профиля"
+"descriptionProfilePage": "Описание страницы профиля",
+"profile": "Профиль",
+"edit": "Редактировать",
+"save": "Сохранить",
+"cancel": "Отменить",
+"name": "Имя",
+"lastName": "Фамилия",
+"age": "Возраст",
+"city": "Город",
+"country": "Страна",
+"currency": "Валюта",
+"choiceCountry": "Выберите страну",
+"choiceCurrency": "Выберите валюту"
+
 
 }

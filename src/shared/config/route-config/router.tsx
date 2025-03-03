@@ -1,6 +1,5 @@
 import { RouteProps } from "react-router-dom";
 import { AboutPage } from "pages/about-page";
-import { DescriptionPage } from "pages/description";
 import { ErrorPage } from "pages/not-found-page/ui/NotFoundPage";
 import { MainPage } from "pages/main-page/ui/MainPage";
 import { ProfilePage } from "pages/profile";
@@ -15,6 +14,9 @@ enum AppRoutes {
 export type RoutePaths = {
     [name in AppRoutes]: string
 }
+type RouteConfig = RouteProps & {
+    authOnly: boolean
+}
 
 export const routePaths: RoutePaths = {
     [AppRoutes.MAIN]: "/",
@@ -24,25 +26,25 @@ export const routePaths: RoutePaths = {
     [AppRoutes.NOT_PAGE]: "/*",
 };
 
-export const routeConfig: RouteProps[] = [
+export const routeConfig: RouteConfig[] = [
     {
         path: routePaths.main,
         element: <MainPage />,
+        authOnly: false,
     },
     {
         path: routePaths.about,
         element: <AboutPage />,
-    },
-    {
-        path: routePaths.description,
-        element: <DescriptionPage />,
+        authOnly: false,
     },
     {
         path: routePaths.profile,
         element: <ProfilePage />,
+        authOnly: true,
     },
     {
         path: routePaths[AppRoutes.NOT_PAGE],
         element: <ErrorPage />,
+        authOnly: false,
     },
 ];

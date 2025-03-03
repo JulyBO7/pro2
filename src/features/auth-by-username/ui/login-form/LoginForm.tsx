@@ -46,7 +46,7 @@ const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
                 <Text title={t("loginForm")} />
                 <Input
                     autoFocus={autofocus}
-                    placeholder={t("enterName")}
+                    placeholder={String(t("enterName"))}
                     value={userName}
                     onChange={onChangeUserName}
                     className={cls.input}
@@ -56,7 +56,7 @@ const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
                 <Input
                     className={cls.input}
                     caret
-                    placeholder={t("enterPassword")}
+                    placeholder={String(t("enterPassword"))}
                     value={password}
                     onChange={onChangePassword}
                     theme={InputTheme.CLEAR}

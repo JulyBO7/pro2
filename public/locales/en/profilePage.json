@@ -1,3 +1,17 @@
 {
-    "descriptionProfilePage": "description on profile page"
+    "descriptionProfilePage": "description on profile page",
+    "profile": "Profile",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "name": "Name",
+    "lastName": "Last name",
+    "age": "Age",
+    "city": "City",
+    "country": "Country",
+    "currency": "Currency",
+    "choiceCountry": "Choice country",
+    "choiceCurrency": "Choice currency"
+
+
 }

@@ -34,4 +34,5 @@ export type ThunkExtraArg={
 export type ThunkArg<T> = {
     extra: ThunkExtraArg
     rejectValue: T
+    state: StateSchema
 }

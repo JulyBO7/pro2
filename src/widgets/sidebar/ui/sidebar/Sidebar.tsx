@@ -1,14 +1,27 @@
-import { FC, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import { ToggleThem } from "widgets/toggle-theme";
 import { LangSwitcher } from "widgets/lang-switcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/components/button";
 import { classNames } from "shared/lib/helpers/classNames";
+import { useSelector } from "react-redux";
+import { selectUserAuthData } from "entities/user";
 import cls from "./Sidebar.module.scss";
 import { SidebarItem } from "../sidebar-item/SidebarItem";
 import { sidebarItems } from "../../model/sidebarItems";
 
 export const Sidebar: FC = () => {
     const [collapse, setCollapse] = useState(false);
+    const userAuthData = useSelector(selectUserAuthData);
+
+    const items = useMemo(() => sidebarItems.map((item) => {
+        if (userAuthData) {
+            return <SidebarItem key={item.routePath} item={item} isCollapse={collapse} />;
+        }
+        if (!item.authOnly) {
+            return <SidebarItem key={item.routePath} item={item} isCollapse={collapse} />;
+        }
+        return null;
+    }), [userAuthData, collapse]);
 
     return (
         <div
@@ -16,7 +29,7 @@ export const Sidebar: FC = () => {
             className={classNames(cls.sidebar, { [cls.collapsedSidebar]: collapse })}
         >
             <div className={cls.linksContainer}>
-                {sidebarItems.map((item) => <SidebarItem key={item.routePath} item={item} isCollapse={collapse} />)}
+                {items}
             </div>
             <Button
                 data-testid="sidebarBtn"
