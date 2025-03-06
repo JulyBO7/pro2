@@ -11,7 +11,25 @@
 "country": "Страна",
 "currency": "Валюта",
 "choiceCountry": "Выберите страну",
-"choiceCurrency": "Выберите валюту"
+"choiceCurrency": "Выберите валюту",
+"yourName": "Ваше имя",
+"yourLastName": "Ваша фамилия",
+"yourAge": "Ваш возраст",
+"yourCity": "Ваш город",
+"enterRefOnAvatar": "Введите ссылку на аватар",
+"enterUserName": "Введите имя пользователя",
+"enterYourAge": "Введите свой возраст",
 
-
+"enterYourName": "Введите ваше имя",
+"enterYourLastName": "Введите вашу фамилию",
+"enterProfileFields": "Заполните поля формы",
+"maxLenghtNameIs": "Максимальная длина имени 15 знаков",
+"maxLenghtLastNameIs": "Максимальная длина фамилии 15 знаков",
+"maxLenghtUserNameIs": "Максимальная длина имени пользователя 15 знаков",
+"notCorrectLastName": "Некорректно введена фамилия",
+"notCorrectName": "Некорректно введено имя",
+"smallNameLength": "Минимальная длина имени 3 символа", 
+"smallLastNameLength": "Минимальная длина фамилии 3 символа", 
+"smallUserNameLength": "Минимальная длина имени 3 символа", 
+"smallUserAge": "Минимальный возраст пользователя 18"
 }

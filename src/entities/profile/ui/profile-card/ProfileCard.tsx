@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import { Loader } from "shared/components/loader";
 import { TextThem, Text } from "shared/components/text";
 import { Avatar } from "shared/components/avatar/ui/Avatar";
-import { Country, Currency } from "shared/const/common";
+import profileImage from "shared/assets/images/149071.png";
+import { Country } from "entities/countries";
+import { Currency } from "entities/currencies";
 import cls from "./ProfileCard.module.scss";
 import { Profile } from "../../model/types/profile";
 import { Select } from "../../../../shared/components/select/ui/Select";
@@ -20,7 +22,8 @@ type ProfileCardProps = {
     onChangeCity?: (value: string)=> void
     onChangeCountry?: (value: string)=> void
     onChangeCurrency?: (value: string)=> void
-
+    onChangeAvatar?:(value: string)=> void
+    onChangeUserName?:(value: string)=> void
 }
 
 const countries = [
@@ -48,6 +51,8 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
         onChangeCity,
         onChangeCountry,
         onChangeCurrency,
+        onChangeAvatar,
+        onChangeUserName,
     } = props;
 
     const { t } = useTranslation("profilePage");
@@ -72,7 +77,9 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
     }
     return (
         <div className={cls.container}>
-            <Avatar text="profile" src={profile?.avatar} className={cls.avatar} />
+            <div className={cls.avatarWrapper}>
+                <Avatar alt={t("profile")} src={profile?.avatar || profileImage} className={cls.avatar} />
+            </div>
             <Input
                 placeholder={String(t("name"))}
                 theme={InputTheme.CLEAR}
@@ -104,6 +111,22 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
                 readOnly={readonly}
                 value={profile?.city}
                 onChange={onChangeCity}
+            />
+            <Input
+                placeholder={String(t("enterUserName"))}
+                theme={InputTheme.CLEAR}
+                caret
+                readOnly={readonly}
+                value={profile?.username}
+                onChange={onChangeUserName}
+            />
+            <Input
+                placeholder={String(t("enterRefOnAvatar"))}
+                theme={InputTheme.CLEAR}
+                caret
+                readOnly={readonly}
+                value={profile?.avatar}
+                onChange={onChangeAvatar}
             />
             <Select
                 onChange={onChangeCountry}

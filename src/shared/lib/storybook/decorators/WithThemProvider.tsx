@@ -5,14 +5,12 @@ import { Theme, ThemeContext } from "../../../../app/providers/theme-context/lib
 
 export const WithThemProviderDecorator = (Story: Story) => {
     const [theme, setTheme] = useState(Theme.LIGHT);
-    const context = useMemo(() => {
-        return {
-            theme,
-            toggleTheme: () => {
-                setTheme((prev) => { return (prev === Theme.LIGHT ? Theme.DARK : Theme.LIGHT); });
-            },
-        };
-    }, [theme]);
+    const context = useMemo(() => ({
+        theme,
+        toggleTheme: () => {
+            setTheme((prev) => (prev === Theme.LIGHT ? Theme.DARK : Theme.LIGHT));
+        },
+    }), [theme]);
     return (
         <ThemeContext.Provider value={context}>
             <Story />

@@ -14,9 +14,7 @@ export default {
     },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => {
-    return <Button {...args} />;
-};
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Clear = Template.bind({}) as typeof Template;
 Clear.args = {

@@ -11,7 +11,25 @@
     "country": "Country",
     "currency": "Currency",
     "choiceCountry": "Choice country",
-    "choiceCurrency": "Choice currency"
+    "choiceCurrency": "Choice currency",
+    "yourName": "Your name",
+    "yourLastName": "Your last name",
+    "yourAge": "Your age",
+    "yourCity": "Your city",
+    "enterRefOnAvatar": "Enter reference on avatar",
+    "enterUserName": "Enter user name",
+    "enterYourAge": "Enter your age",
 
-
+    "enterYourName": "Enter your name",
+    "enterYourLastName": "Enter your last name",
+    "enterProfileFields": "Enter profile fields",
+    "maxLenghtNameIs": "Max name lenght is 15 symbols",
+    "maxLenghtLastNameIs": "Max last name lenght is 15 symbols",
+    "maxLenghtUserNameIs": "Max last name lenght is 15 symbols",
+    "notCorrectLastName": "Not correct last name",
+    "notCorrectName": "Not correct name",
+    "smallNameLength": "Min name length is 3 symbols", 
+    "smallLastNameLength": "Min last name length is 3 symbols", 
+    "smallUserNameLength": "Min last name length is 3 symbols", 
+    "smallUserAge": "Min user age is 18"
 }

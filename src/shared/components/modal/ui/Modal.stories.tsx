@@ -14,9 +14,7 @@ export default {
     },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => {
-    return <Modal {...args} />;
-};
+const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
 export const Primary = Template.bind({}) as typeof Template;
 Primary.args = {

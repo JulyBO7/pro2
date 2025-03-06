@@ -1,7 +1,5 @@
 import { lazy } from "react";
 
-export const LoginFormAsync = lazy(() => {
-    return new Promise((res) => {
-        setTimeout(res, 1000);
-    }).then(() => { return import("./LoginForm"); });
-});
+export const LoginFormAsync = lazy(() => new Promise((res) => {
+    setTimeout(res, 1000);
+}).then(() => import("./LoginForm")));

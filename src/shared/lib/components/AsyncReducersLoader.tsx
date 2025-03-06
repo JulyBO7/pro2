@@ -30,7 +30,7 @@ export const AsyncReducersLoader:FC<AsyncReducersLoaderProps> = ({ children, red
                 });
             }
         };
-    }, []);
+    }, [dispatch, removeAfterUnmount, reducers, store.reducerManager]);
 
     return (
         <div>

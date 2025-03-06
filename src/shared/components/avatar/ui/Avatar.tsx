@@ -1,30 +1,28 @@
-import { FC } from "react";
+import { FC, HTMLAttributes } from "react";
 import { classNames } from "shared/lib/helpers/classNames";
 import cls from "./Avatar.module.scss";
 
-export enum AvatarSize {
-    SMALL = "small",
-    MIDDLE = "middle",
-    LARGE = "large"
-}
-type AvatarProps = {
+interface AvatarProps extends HTMLAttributes<HTMLImageElement>{
     src: string | undefined
     className?:string
-    size?: AvatarSize
-    text: string
+    size?: number
+    alt: string
 }
 
 export const Avatar:FC<AvatarProps> = (props) => {
     const {
         src,
         className,
-        size = AvatarSize.MIDDLE,
-        text,
+        size,
+        alt,
     } = props;
 
+    const avatarSize = {
+        width: size || 100,
+        height: size || 100,
+    };
+
     return (
-        <div className={className}>
-            <img src={src} alt={text} className={classNames(cls.image, {}, [cls[size]])} />
-        </div>
+        <img style={avatarSize} src={src} alt={alt} className={classNames(cls.image, {}, [className])} />
     );
 };

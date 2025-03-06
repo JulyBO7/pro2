@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ThemeDecorator } from "shared/lib/storybook";
+import { StoreDecorator, ThemeDecorator } from "shared/lib/storybook";
 import { Theme } from "app/providers/theme-context";
 import { Sidebar } from "./Sidebar";
 
@@ -9,7 +9,7 @@ export default {
     argTypes: {
         backgroundColor: { control: "color" },
     },
-
+    decorators: [StoreDecorator({ user: { authData: {} } })],
 } as ComponentMeta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => (
@@ -17,17 +17,19 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
 );
 
 export const Light = Template.bind({}) as typeof Template;
-Light.decorators = [ThemeDecorator(Theme.LIGHT), (Story: any) => {
-    localStorage.removeItem("theme");
-    return (
-        <Story />
-    );
-}];
+Light.decorators = [
+    ThemeDecorator(Theme.LIGHT),
+];
 
 export const Dark = Template.bind({}) as typeof Template;
-Dark.decorators = [ThemeDecorator(Theme.DARK), (Story: any) => {
-    localStorage.removeItem("theme");
-    return (
-        <Story />
-    );
-}];
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+
+];
+
+export const NotAuth = Template.bind({}) as typeof Template;
+NotAuth.decorators = [
+    ThemeDecorator(Theme.LIGHT),
+
+    StoreDecorator({ user: {} }),
+];

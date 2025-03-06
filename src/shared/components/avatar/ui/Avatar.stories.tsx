@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Avatar, AvatarSize } from "./Avatar";
+import image from "shared/assets/images/149071.png";
+import { Avatar } from "./Avatar";
 
 export default {
     title: "shared/Avatar",
@@ -8,7 +9,7 @@ export default {
         backgroundColor: { control: "color" },
     },
     args: {
-        src: "https://cdn-icons-png.flaticon.com/512/3177/3177440.png",
+        src: image,
         alt: "user",
     },
 } as ComponentMeta<typeof Avatar>;
@@ -17,13 +18,13 @@ const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Small = Template.bind({}) as typeof Template;
 Small.args = {
-    size: AvatarSize.SMALL,
+    size: 30,
 };
 export const Middle = Template.bind({}) as typeof Template;
 Middle.args = {
-    size: AvatarSize.MIDDLE,
+    size: 60,
 };
 export const Large = Template.bind({}) as typeof Template;
 Large.args = {
-    size: AvatarSize.LARGE,
+    size: 100,
 };

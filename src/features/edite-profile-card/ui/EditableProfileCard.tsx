@@ -1,21 +1,22 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "shared/components/button";
-import { Text } from "shared/components/text";
+import { Text, TextThem } from "shared/components/text";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import {
     profileActions, ProfileCard, selectProfileError, selectProfileIsLoading,
 } from "entities/profile";
 import { useSelector } from "react-redux";
-import { Country, Currency } from "shared/const/common";
+import { Currency } from "entities/currencies";
+import { Country } from "entities/countries";
 import cls from "./EditableProfileCard.module.scss";
 import { selectProfileReadonly } from "../model/selectors/profile-readonly-selector/selectProfileReadonly";
 import { updateProfileData } from "../services/update-profile-data/updateProfileData";
 import { selectProfileFormData } from "../model/selectors/profile-form-selector/selectProfileFormData";
+import { selectProfileValidateErrors } from "../model/selectors/profile-validate-errors/selectProfileValidateErrors";
+import { validateErrorsObject } from "../lib/const/validateErrors";
 
-type EditableProfileCardProps={}
-
-export const EditableProfileCard:FC<EditableProfileCardProps> = () => {
+export const EditableProfileCard:FC<{}> = () => {
     const { t } = useTranslation("profilePage");
     const dispatch = useAppDispatch();
 
@@ -23,6 +24,15 @@ export const EditableProfileCard:FC<EditableProfileCardProps> = () => {
     const profileForm = useSelector(selectProfileFormData);
     const profileError = useSelector(selectProfileError);
     const isLoading = useSelector(selectProfileIsLoading);
+    const validateErrors = useSelector(selectProfileValidateErrors);
+
+    const validateErrorsList = useMemo(() => validateErrors?.map((error) => (
+        <Text
+            key={error}
+            text={t(validateErrorsObject[error])}
+            theme={TextThem.ERROR}
+        />
+    )), [validateErrors, t]);
 
     const handleChangeFirstName = (value: string) => {
         dispatch(profileActions.updateProfileForm({ first: value }));
@@ -42,6 +52,12 @@ export const EditableProfileCard:FC<EditableProfileCardProps> = () => {
     const handleChangeCountry = (value: string) => {
         dispatch(profileActions.updateProfileForm({ country: value as Country }));
     };
+    const handleChangeAvatar = (value: string) => {
+        dispatch(profileActions.updateProfileForm({ avatar: value }));
+    };
+    const handleChangeUserName = (value: string) => {
+        dispatch(profileActions.updateProfileForm({ username: value }));
+    };
 
     const handleClickEditBtn = () => {
         dispatch(profileActions.setReadonly(false));
@@ -52,6 +68,7 @@ export const EditableProfileCard:FC<EditableProfileCardProps> = () => {
     const handleClickCancelBtn = () => {
         dispatch(profileActions.cancelChanges());
     };
+
     return (
         <div>
             <div className={cls.container}>
@@ -69,7 +86,10 @@ export const EditableProfileCard:FC<EditableProfileCardProps> = () => {
                         </div>
                     )}
             </div>
+            {validateErrorsList}
             <ProfileCard
+                onChangeAvatar={handleChangeAvatar}
+                onChangeUserName={handleChangeUserName}
                 error={profileError}
                 isLoading={isLoading}
                 profile={profileForm}

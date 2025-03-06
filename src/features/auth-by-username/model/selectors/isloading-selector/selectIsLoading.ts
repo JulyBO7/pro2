@@ -1,3 +1,3 @@
 import { StateSchema } from "app/providers/store-provider";
 
-export const selectIsLoading = (state: StateSchema) => { return state.loginForm?.isLoading || false; };
+export const selectIsLoading = (state: StateSchema) => state.loginForm?.isLoading || false;

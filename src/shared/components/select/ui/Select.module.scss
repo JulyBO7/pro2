@@ -11,7 +11,17 @@
     color: var(--primary-color);
 }
 
-.span {
+.label {
     display: inline-block;
     margin-right: 10px;
+}
+
+.options {
+    background-color: var(--invert-bg-color);
+    color: var(--invert-primary-color);
+    border-radius: 10px;
+
+    &:hover {
+        color: var(--bg-color);
+    }
 }

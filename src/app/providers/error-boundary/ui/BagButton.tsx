@@ -16,7 +16,7 @@ export const BagButton = () => {
     return (
         <div>
             <Button onClick={() => {
-                setError((prev) => { return !prev; });
+                setError((prev) => !prev);
             }}
             >
                 {t("bugButton")}

@@ -6,8 +6,6 @@ type PortalProps = {
     container?: Element
 }
 
-export const Portal:FC<PortalProps> = ({ children, container = document.body }) => {
-    return (
-        createPortal(children, container)
-    );
-};
+export const Portal:FC<PortalProps> = ({ children, container = document.body }) => (
+    createPortal(children, container)
+);

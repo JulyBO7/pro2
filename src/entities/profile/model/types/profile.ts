@@ -1,4 +1,6 @@
-import { Country, Currency } from "shared/const/common";
+import { Country } from "entities/countries";
+import { Currency } from "entities/currencies";
+import { ProfileValidateErrors } from "features/edite-profile-card";
 
 export interface Profile {
     first?: string,
@@ -16,4 +18,5 @@ export interface ProfileSchema {
     isLoading: boolean
     error?: string
     readonly: boolean
+    validateErrors?:ProfileValidateErrors[]
 }

@@ -31,6 +31,12 @@
     margin-inline: auto;
 }
 
+.avatarWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .avatar {
     text-align: center;
 }

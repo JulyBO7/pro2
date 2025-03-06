@@ -1,15 +1,20 @@
 {
   "aboutLink": "",
+  "cancel": "",
   "collapseSidebar": "",
   "decrement": "",
   "descriptionLink": "",
+  "edit": "",
   "enterName": "",
   "enterPassword": "",
   "increment": "",
   "lang": "",
   "loginForm": "",
   "main": "",
+  "mainPage": "",
   "pageNotFound": "",
+  "profile": "",
+  "save": "",
   "signIn": "",
   "signOut": ""
 }

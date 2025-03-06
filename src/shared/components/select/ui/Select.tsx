@@ -24,7 +24,7 @@ export const Select:FC<SelectProps> = (props) => {
         onChange?.(event.target.value);
     };
 
-    const selectOptions = useMemo(() => options.map((opt) => (
+    const optionsList = useMemo(() => options.map((opt) => (
         <option
             key={opt.value}
             className={cls.options}
@@ -36,14 +36,14 @@ export const Select:FC<SelectProps> = (props) => {
 
     return (
         <div className={classNames(cls.container, {}, [className])}>
-            {label && <span className={cls.span}>{`${label}>`}</span>}
+            {label && <span className={cls.label}>{`${label}>`}</span>}
             <select
                 name="select"
                 onChange={handleChangeOption}
                 className={classNames(cls.select)}
                 {...rest}
             >
-                {selectOptions}
+                {optionsList}
             </select>
         </div>
     );

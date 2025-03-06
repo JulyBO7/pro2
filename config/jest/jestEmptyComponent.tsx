@@ -1,8 +1,6 @@
 import React from "react";
 
-const JestEmptyComponenet = () => {
-    return (
-        <div />
-    );
-};
+const JestEmptyComponenet = () => (
+    <div />
+);
 export default JestEmptyComponenet;
