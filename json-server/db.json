@@ -3,7 +3,20 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "123"
+      "password": "123", 
+      "avatar":"https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png"
+    },
+    {
+      "id": 2,
+      "username": "user",
+      "password": "456", 
+      "avatar": "https://img.freepik.com/free-psd/contact-icon-illustration-isolated_23-2151903337.jpg?t=st=1741877608~exp=1741881208~hmac=df61b6701df94a86a0997b72d8892ed156fe59e3ce8b4aa21c68191856df5a26&w=826"
+    },
+    {
+      "id": 3,
+      "username": "user2",
+      "password": "789", 
+      "admin": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFA6x1KtwROYOEfw6yM9CUIBp0BEFaS4YfCdUhVEGSP7s_NaNJCxvdhZ5jbOB0zZtKxLA&usqp=CAU"
     }
   ],
   "profile": {
@@ -112,13 +125,13 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "3"
     }
   ]
 }

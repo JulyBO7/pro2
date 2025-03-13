@@ -44,11 +44,11 @@ export const ArticleDetails:FC<ArticleDetailsProps> = ({ id }) => {
     const getArticleBlocks = useCallback((block: ArticleBlockType) => {
         switch (block.type) {
         case ArticleBlock.CODE:
-            return <ArticleCodeBlock block={block} />;
+            return <ArticleCodeBlock key={block.id} block={block} />;
         case ArticleBlock.IMAGE:
-            return <ArticleImageBlock block={block} />;
+            return <ArticleImageBlock key={block.id} block={block} />;
         case ArticleBlock.TEXT:
-            return <ArticleTextBlock block={block} />;
+            return <ArticleTextBlock key={block.id} block={block} />;
         default: return null;
         }
     }, []);
@@ -77,7 +77,7 @@ export const ArticleDetails:FC<ArticleDetailsProps> = ({ id }) => {
             </div>
         );
     } else {
-        content = (
+        content = article ? (
             <div className={cls.container}>
                 <div className={cls.avatar}>
                     <Avatar src={article?.img} size={200} alt="artilce" />
@@ -94,7 +94,7 @@ export const ArticleDetails:FC<ArticleDetailsProps> = ({ id }) => {
                 </div>
                 {blocks}
             </div>
-        );
+        ) : null;
     }
 
     return (

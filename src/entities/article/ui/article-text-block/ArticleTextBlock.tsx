@@ -16,7 +16,7 @@ export const ArticleTextBlock:FC<ArticleTextBlockProps> = (props) => {
     return (
         <div className={classNames(cls.container, {}, [className])}>
             {block.title && <Text className={cls.title} title={block.title} size={TextSize.L} />}
-            {block.paragraphs.map((p) => <Text align={TextAlign.CENTER} className={cls.paragraph} text={p} />)}
+            {block.paragraphs.map((p) => <Text key={p} align={TextAlign.CENTER} className={cls.paragraph} text={p} />)}
         </div>
     );
 };

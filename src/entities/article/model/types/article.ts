@@ -10,7 +10,7 @@ interface ArticleBaseBlock{
 }
 export interface ArticleImageBlockType extends ArticleBaseBlock {
     src: string
-    title: ArticleBlock
+    title: string
     type: ArticleBlock.IMAGE
 }
 export interface ArticleCodeBlockType extends ArticleBaseBlock {

@@ -1,0 +1,36 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { ThunkArg } from "app/providers/store-provider";
+import { Comment } from "entities/comment/model/types/comment";
+
+export const fetchCommentList = createAsyncThunk<Comment[], string, ThunkArg<string>>(
+    "comment/fetchCommentList",
+    async (articleId, thunkAPI) => {
+        const { extra, rejectWithValue } = thunkAPI;
+
+        try {
+            const response = await extra.api.get<Comment[]>("/comments", {
+                params: {
+                    articleId,
+                    _expand: "user",
+                },
+            });
+            if (!response.data) {
+                throw Error("user not found!");
+            }
+            return response.data;
+        } catch (e) {
+            const error = e as Error;
+            let errorMessage = error.message;
+            if (axios.isAxiosError(e)) {
+                if (e.response?.data) {
+                    errorMessage = e.response.data.message;
+                } else {
+                    errorMessage = e.message;
+                }
+            }
+            console.dir(e);
+            return rejectWithValue(errorMessage);
+        }
+    },
+);
