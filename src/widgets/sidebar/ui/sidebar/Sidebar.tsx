@@ -1,10 +1,10 @@
 import { FC, useMemo, useState } from "react";
-import { ToggleThem } from "widgets/toggle-theme";
 import { LangSwitcher } from "widgets/lang-switcher";
 import { Button, ButtonSize, ButtonTheme } from "shared/components/button";
 import { classNames } from "shared/lib/helpers/classNames";
 import { useSelector } from "react-redux";
 import { selectUserAuthData } from "entities/user";
+import { ToggleThem } from "widgets/toggle-theme";
 import cls from "./Sidebar.module.scss";
 import { SidebarItem } from "../sidebar-item/SidebarItem";
 import { sidebarItems } from "../../model/sidebarItems";

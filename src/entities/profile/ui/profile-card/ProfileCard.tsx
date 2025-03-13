@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Loader } from "shared/components/loader";
 import { TextThem, Text } from "shared/components/text";
 import { Avatar } from "shared/components/avatar/ui/Avatar";
-import profileImage from "shared/assets/images/149071.png";
+import profileImage from "shared/assets/images/defaultAvatar.png";
 import { Country } from "entities/countries";
 import { Currency } from "entities/currencies";
 import cls from "./ProfileCard.module.scss";
@@ -82,7 +82,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             </div>
             <Input
                 placeholder={String(t("name"))}
-                theme={InputTheme.CLEAR}
+                Theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.first}
@@ -90,7 +90,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("lastName"))}
-                theme={InputTheme.CLEAR}
+                Theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.lastname}
@@ -98,7 +98,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("age"))}
-                theme={InputTheme.CLEAR}
+                Theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.age}
@@ -106,7 +106,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("city"))}
-                theme={InputTheme.CLEAR}
+                Theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.city}
@@ -114,7 +114,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("enterUserName"))}
-                theme={InputTheme.CLEAR}
+                Theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.username}
@@ -122,7 +122,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("enterRefOnAvatar"))}
-                theme={InputTheme.CLEAR}
+                Theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.avatar}

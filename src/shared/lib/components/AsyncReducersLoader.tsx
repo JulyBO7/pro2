@@ -1,6 +1,8 @@
 import { Reducer } from "@reduxjs/toolkit";
 import { StateSchemaKey, StoreWithReduceManager } from "app/providers/store-provider";
-import { FC, ReactNode, useEffect } from "react";
+import {
+    memo, ReactNode, useEffect,
+} from "react";
 import { useStore } from "react-redux";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 
@@ -13,7 +15,8 @@ type AsyncReducersLoaderProps = {
     removeAfterUnmount?: boolean;
 }
 
-export const AsyncReducersLoader:FC<AsyncReducersLoaderProps> = ({ children, reducers, removeAfterUnmount = true }) => {
+export const AsyncReducersLoader = memo((props: AsyncReducersLoaderProps) => {
+    const { children, reducers, removeAfterUnmount = true } = props;
     const store = useStore() as StoreWithReduceManager;
     const dispatch = useAppDispatch();
 
@@ -37,4 +40,4 @@ export const AsyncReducersLoader:FC<AsyncReducersLoaderProps> = ({ children, red
             { children }
         </div>
     );
-};
+});

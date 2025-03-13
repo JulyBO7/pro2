@@ -4,6 +4,10 @@
     --font-line-m: 24px;
     --font-size-l: 20px;
     --font-line-l: 28px;
+    --font-size-xl: 24px;
+    --font-line-xl: 32px;
+    --font-size-xxl: 32px;
+    --font-line-xxl: 40px;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
@@ -17,4 +21,8 @@
 
     --primary-error-color: rgb(238 11 11);
     --secondary-error-color: rgb(180 5 5 / 84%);
+
+    //отступ - красная строка для первой строки
+
+    --text-left-indent: 30px;
 }

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ThemeDecorator } from "shared/lib/storybook";
-import { Theme } from "app/providers/theme-context";
+import { Theme } from "app/providers/Theme-context";
 import { StoreDecorator } from "shared/lib/storybook/decorators/StoreDecorator";
 import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/store-provider";

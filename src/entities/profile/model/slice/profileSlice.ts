@@ -20,6 +20,7 @@ const profileSlice = createSlice({
         },
         cancelChanges: (state) => {
             state.formData = state.data;
+            state.readonly = true;
         },
     },
     extraReducers: (builder) => {

@@ -1,20 +1,22 @@
-import React from "react";
+import { FC } from "react";
 import { Button } from "shared/components/button";
-import LightThemeIcon from "shared/assets/icons/theme-light 1.svg";
-import DarkThemeIcon from "shared/assets/icons/theme-dark 1.svg";
+import ThemeIcon from "shared/assets/icons/Theme-light 1.svg";
 
-import { Theme, useTheme } from "app/providers/theme-context";
 import { ButtonSize, ButtonTheme } from "shared/components/button/ui/Button";
+import { useTheme } from "app/providers/Theme-context";
+import { Icon } from "shared/components/icon/ui/Icon";
+import cls from "./ToggleTheme.module.scss";
 
 type ToggleThemProps = {
 };
 
-export const ToggleThem: React.FC<ToggleThemProps> = () => {
+export const ToggleThem: FC<ToggleThemProps> = () => {
     const { theme, toggleTheme } = useTheme();
+
     return (
         <div>
             <Button onClick={toggleTheme} theme={ButtonTheme.CLEAR} size={ButtonSize.M}>
-                {theme === Theme.LIGHT ? <LightThemeIcon /> : <DarkThemeIcon />}
+                <Icon Svg={ThemeIcon} className={cls.icon} />
             </Button>
         </div>
     );

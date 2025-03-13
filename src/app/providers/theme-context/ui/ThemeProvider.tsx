@@ -1,22 +1,35 @@
 import {
     ReactElement, useCallback, useMemo, useState,
 } from "react";
-import { Theme, ThemeContext } from "../lib/themeContext";
+import { Theme, ThemeContext } from "../lib/ThemeContext";
 
 type ThemeProviderProps ={
     children: ReactElement
     initialTheme?: Theme
 }
 
+const currentTheme = localStorage.getItem("theme") as Theme;
+
 export const ThemeProvider = ({ children, initialTheme }: ThemeProviderProps) => {
-    const currentTheme = localStorage.getItem("theme") as Theme;
-    const [theme, setTheme] = useState<Theme>(currentTheme || initialTheme || Theme.LIGHT);
+    const [theme, setTheme] = useState<Theme>(initialTheme || currentTheme || Theme.LIGHT);
 
     const toggleTheme = useCallback(() => {
-        const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
+        switch (theme) {
+        case Theme.LIGHT:
+            setTheme(Theme.DARK);
+            break;
+        case Theme.DARK:
+            setTheme(Theme.GREEN);
+            break;
+        case Theme.GREEN:
+            setTheme(Theme.LIGHT);
+            break;
+        default:
+            setTheme(Theme.LIGHT);
+        }
     }, [theme]);
+
+    localStorage.setItem("theme", theme);
 
     const providerValue = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
     document.body.className = theme;

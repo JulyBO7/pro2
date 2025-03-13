@@ -17,6 +17,7 @@ export const buildPlugins = (options:BuildOptions) => {
         new MiniCssExtractPlugin(),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __STORYBOOK__: false,
         }),
         new webpack.HotModuleReplacementPlugin(),
         ...devPlugins,

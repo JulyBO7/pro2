@@ -7,7 +7,7 @@ jest.mock("axios");
 const mockedAxios = jest.mocked(axios); // для ts
 
 type AsyncThunkActionCreator<Returned, ThunkCreatorArg, RejectValue>
-= (arg:ThunkCreatorArg | undefined)=> AsyncThunkAction<Returned,
+= (arg:ThunkCreatorArg)=> AsyncThunkAction<Returned,
                                                         ThunkCreatorArg,
                                                         {rejectValue: RejectValue} >
 
@@ -28,7 +28,7 @@ export class TestAsyncThunk<Returned, ThunkCreatorArg, RejectValue> {
         this.thunkActionCreator = asyncThunkActionCreator;
     }
 
-    async callThunk(arg?:ThunkCreatorArg) {
+    async callThunk(arg:ThunkCreatorArg) {
         const thunk = this.thunkActionCreator(arg);
         const action = await thunk(this.dispatch, this.getState, { api: this.api });
         return action;

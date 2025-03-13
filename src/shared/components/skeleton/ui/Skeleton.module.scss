@@ -1,0 +1,33 @@
+.skeleton {
+    box-shadow: 0 4px 10px 0 var(--skeleton-shadow);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -300px;
+        top: 0;
+        height: 100%;
+        width: 300px;
+        background: linear-gradient(to right, transparent 0%, var(--skeleton-bg) 50%, transparent 100%);
+        animation: load 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+}
+
+.curcle {
+    border-radius: 50%;
+}
+
+@keyframes load {
+    from {
+        left: -300px;
+    }
+
+    to {
+        left: 100%;
+    }
+}

@@ -6,6 +6,26 @@
     font: var(--font-m);
 }
 
+.size_l {
+    .title {
+        font-size: var(--font-size-xl);
+    }
+
+    .text {
+        font-size: var(--font-size-l);
+    }
+}
+
+.size_xl {
+    .title {
+        font-size: var(--font-size-xxl);
+    }
+
+    .text {
+        font-size: var(--font-size-xl);
+    }
+}
+
 .error {
     .title {
         color: var(--primary-error-color);
@@ -14,4 +34,16 @@
     .text {
         color: var(--secondary-error-color);
     }
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
 }

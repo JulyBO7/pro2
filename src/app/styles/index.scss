@@ -2,6 +2,7 @@
 @import "./variables/global";
 @import "./themes/dark";
 @import "./themes/light";
+@import "./themes/green";
 
 body {
     font: var(--font-m);
@@ -9,10 +10,18 @@ body {
 }
 
 .app {
-    min-height: 100vh;
+    height: 100vh;
     background-color: var(--bg-color);
 }
 
 .appContent {
     display: flex;
+}
+
+.pageWrapper {
+    height: calc(100vh - var(--navbar-height));
+    width: calc(100vw - var(--sidebar-width));
+    padding: 30px;
+    overflow: auto;
+    flex-grow: 1;
 }

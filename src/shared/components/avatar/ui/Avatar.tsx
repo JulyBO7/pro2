@@ -1,5 +1,6 @@
 import { FC, HTMLAttributes } from "react";
 import { classNames } from "shared/lib/helpers/classNames";
+import DefaultAvatar from "shared/assets/images/defaultAvatar.png";
 import cls from "./Avatar.module.scss";
 
 interface AvatarProps extends HTMLAttributes<HTMLImageElement>{
@@ -23,6 +24,11 @@ export const Avatar:FC<AvatarProps> = (props) => {
     };
 
     return (
-        <img style={avatarSize} src={src} alt={alt} className={classNames(cls.image, {}, [className])} />
+        <img
+            style={avatarSize}
+            src={src ?? DefaultAvatar}
+            alt={alt}
+            className={classNames(cls.image, {}, [className])}
+        />
     );
 };

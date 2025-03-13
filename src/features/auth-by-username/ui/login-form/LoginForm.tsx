@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Text, TextThem } from "shared/components/text";
 import { AsyncReducersLoader } from "shared/lib/components/AsyncReducersLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
+import { useMemo } from "react";
 import { selectError } from "../../model/selectors/error-selector/selectError";
 import { selectIsLoading } from "../../model/selectors/isloading-selector/selectIsLoading";
 import { loginReducer, setPassword, setUsername } from "../../model/slice/loginSlice";
@@ -38,7 +39,8 @@ const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
             onSuccess?.();
         }
     };
-    const asyncLoginReducer = { loginForm: loginReducer };
+    const asyncLoginReducer = useMemo(() => ({ loginForm: loginReducer }), []);
+
     return (
         <AsyncReducersLoader reducers={asyncLoginReducer}>
             <div className={cls.formContainer}>
@@ -51,7 +53,7 @@ const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
                     onChange={onChangeUserName}
                     className={cls.input}
                     caret
-                    theme={InputTheme.CLEAR}
+                    Theme={InputTheme.CLEAR}
                 />
                 <Input
                     className={cls.input}
@@ -59,7 +61,7 @@ const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
                     placeholder={String(t("enterPassword"))}
                     value={password}
                     onChange={onChangePassword}
-                    theme={InputTheme.CLEAR}
+                    Theme={InputTheme.CLEAR}
                 />
                 <Button
                     disabled={isLoading}

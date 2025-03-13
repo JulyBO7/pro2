@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import axios from "axios";
+// import axios from "axios";
 import { ThunkArg } from "app/providers/store-provider";
 import { Profile } from "../../model/types/profile";
 
@@ -17,14 +17,14 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkArg<string>
             return response.data;
         } catch (e) {
             const error = e as Error;
-            let errorMessage = error.message;
-            if (axios.isAxiosError(e)) {
-                if (e.response?.data) {
-                    errorMessage = e.response.data.message;
-                } else {
-                    errorMessage = e.message;
-                }
-            }
+            const errorMessage = error.message;
+            // if (axios.isAxiosError(e)) {
+            //     if (e.response?.data) {
+            //         errorMessage = e.response.data.message;
+            //     } else {
+            //         errorMessage = e.message;
+            //     }
+            // }
             console.dir(e);
             return rejectWithValue(errorMessage);
         }

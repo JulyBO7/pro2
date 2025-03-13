@@ -26,6 +26,7 @@ export default ({ config }:{config: webpack.Configuration}) => {
     config.resolve?.extensions?.push(".ts", ".tsx");
     config.plugins?.push(new webpack.DefinePlugin({
         __IS_DEV__: true,
+        __STORYBOOK__: true,
     }));
 
     return config;

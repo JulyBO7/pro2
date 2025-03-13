@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    min-width: 100px;
+
+    // height: 16px;
+    margin-bottom: 10px;
+}
+
+.viewWrapper,
+.dataWrapper {
+    min-width: 30px;
+    height: 30px;
+}
+
+.view,
+.data {
+    display: flex;
+    column-gap: 5px;
+    margin-bottom: 10px;
+}
+
+.skeleton {
+    border-radius: 20px;
+}

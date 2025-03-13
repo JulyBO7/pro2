@@ -12,7 +12,7 @@ import { ProfileValidateErrors } from "../../lib/const/validateErrors";
 //     NETWORK_ERROR = "network error",
 //     SERVER_ERROR = "server error"
 // }
-export const updateProfileData = createAsyncThunk<Profile, undefined, ThunkArg<ProfileValidateErrors[] | string>>(
+export const updateProfileData = createAsyncThunk<Profile, void, ThunkArg<ProfileValidateErrors[] | string>>(
     "profile/updateProfile",
     async (_, thunkAPI) => {
         const { extra, rejectWithValue, getState } = thunkAPI;

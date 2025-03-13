@@ -15,5 +15,6 @@
   "enterName": "Введите имя",
   "enterPassword": "Введите пароль",
   "signOut": "Выход",
-  "loginForm": "Форма авторизации"
+  "loginForm": "Форма авторизации",
+  "articles": "Статьи"
 }

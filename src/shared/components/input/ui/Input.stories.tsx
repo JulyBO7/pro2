@@ -19,5 +19,5 @@ Primary.args = {};
 
 export const Clear = Template.bind({}) as typeof Template;
 Clear.args = {
-    theme: InputTheme.CLEAR,
+    Theme: InputTheme.CLEAR,
 };

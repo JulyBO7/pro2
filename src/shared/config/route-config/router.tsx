@@ -1,20 +1,23 @@
 import { RouteProps } from "react-router-dom";
 import { AboutPage } from "pages/about-page";
-import { ErrorPage } from "pages/not-found-page/ui/NotFoundPage";
-import { MainPage } from "pages/main-page/ui/MainPage";
+import { ErrorPage } from "pages/not-found-page";
+import { MainPage } from "pages/main-page";
 import { ProfilePage } from "pages/profile";
+import { ArticlesPage } from "pages/articles-page";
+import { ArticleDetailsPage } from "pages/atricle-details-page";
 
-enum AppRoutes {
-  MAIN = "main",
+export enum AppRoutes {
+  MAIN = "/",
   ABOUT = "about",
   DESCRIPTION = "description",
   PROFILE = "profile",
+  ARTICLES = "articles",
   NOT_PAGE = "*"
 }
 export type RoutePaths = {
     [name in AppRoutes]: string
 }
-type RouteConfig = RouteProps & {
+export type RouteConfig = RouteProps & {
     authOnly: boolean
 }
 
@@ -23,22 +26,23 @@ export const routePaths: RoutePaths = {
     [AppRoutes.ABOUT]: "/about",
     [AppRoutes.DESCRIPTION]: "/description",
     [AppRoutes.PROFILE]: "/profile",
+    [AppRoutes.ARTICLES]: "/articles",
     [AppRoutes.NOT_PAGE]: "/*",
 };
 
 export const routeConfig: RouteConfig[] = [
     {
-        path: routePaths.main,
+        path: routePaths[AppRoutes.MAIN],
         element: <MainPage />,
         authOnly: false,
     },
     {
-        path: routePaths.about,
+        path: routePaths[AppRoutes.ABOUT],
         element: <AboutPage />,
         authOnly: false,
     },
     {
-        path: routePaths.profile,
+        path: routePaths[AppRoutes.PROFILE],
         element: <ProfilePage />,
         authOnly: true,
     },
@@ -46,5 +50,16 @@ export const routeConfig: RouteConfig[] = [
         path: routePaths[AppRoutes.NOT_PAGE],
         element: <ErrorPage />,
         authOnly: false,
+    },
+    {
+        path: routePaths[AppRoutes.ARTICLES],
+        element: <ArticlesPage />,
+        authOnly: true
+        ,
+    },
+    {
+        path: `${routePaths[AppRoutes.ARTICLES]}/:id`,
+        element: <ArticleDetailsPage />,
+        authOnly: true,
     },
 ];

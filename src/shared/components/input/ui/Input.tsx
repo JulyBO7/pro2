@@ -13,7 +13,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChan
     onChange?: (value: string)=> void,
     className?: string,
     caret?: boolean,
-    theme?: InputTheme,
+    Theme?: InputTheme,
     placeholder?: string | number
     autoFocus?: boolean
 }
@@ -26,7 +26,7 @@ export const Input:FC<InputProps> = (props) => {
         className,
         readOnly,
         caret,
-        theme = InputTheme.PRIMARY,
+        Theme = InputTheme.PRIMARY,
         placeholder,
         autoFocus, ...rest
     } = props;
@@ -39,7 +39,8 @@ export const Input:FC<InputProps> = (props) => {
 
     const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
         const newValue = e.currentTarget.value;
-        onChange?.(newValue);
+        // onChange?.(newValue);
+        onChange && onChange(newValue);
         setCaretPosition(newValue.length);
     };
     const onSelect = (e: any) => {
@@ -71,7 +72,7 @@ export const Input:FC<InputProps> = (props) => {
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSelect={onSelect}
-                        className={classNames(cls.input, {}, [cls[theme]])}
+                        className={classNames(cls.input, {}, [cls[Theme]])}
                         type={type}
                         value={value}
                         onChange={onChangeValue}

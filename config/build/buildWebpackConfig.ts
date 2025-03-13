@@ -11,10 +11,12 @@ export const buildWebpackConfig = (options: BuildOptions) => {
         mode,
         entry: paths.entry,
         // entry: './src/index.ts',
+
         output: {
             filename: "[name].[contenthash].js",
             path: paths.build,
             clean: true,
+            publicPath: "/",
         },
         plugins: buildPlugins(options),
         module: {

@@ -17,7 +17,7 @@ export const SidebarItem:FC<SidebarItemProps> = ({ item, isCollapse, className }
         <div>
             <AppLink
                 to={item.routePath}
-                theme={AppLinkTheme.INVERTED_PRIMARY}
+                Theme={AppLinkTheme.INVERTED_PRIMARY}
                 className={classNames(cls.appLink, { [cls.collapsed]: isCollapse }, [className])}
             >
                 <item.Icon className={cls.lincIcon} />

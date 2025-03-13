@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { StoreDecorator, ThemeDecorator } from "shared/lib/storybook";
-import { Theme } from "app/providers/theme-context";
+import { Theme } from "app/providers/Theme-context";
 
 import { StateSchema } from "app/providers/store-provider";
 import { loginReducer } from "features/auth-by-username";

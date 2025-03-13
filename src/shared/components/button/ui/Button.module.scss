@@ -6,6 +6,10 @@
     align-items: center;
     justify-content: center;
     font: var(--font-m);
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .background {
