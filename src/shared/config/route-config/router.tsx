@@ -7,12 +7,12 @@ import { ArticlesPage } from "pages/articles-page";
 import { ArticleDetailsPage } from "pages/atricle-details-page";
 
 export enum AppRoutes {
-  MAIN = "/",
+  MAIN = "main",
   ABOUT = "about",
   DESCRIPTION = "description",
   PROFILE = "profile",
   ARTICLES = "articles",
-  NOT_PAGE = "*"
+  NOT_PAGE = "not_page"
 }
 export type RoutePaths = {
     [name in AppRoutes]: string
@@ -42,7 +42,7 @@ export const routeConfig: RouteConfig[] = [
         authOnly: false,
     },
     {
-        path: routePaths[AppRoutes.PROFILE],
+        path: `${routePaths[AppRoutes.PROFILE]}/:id`,
         element: <ProfilePage />,
         authOnly: true,
     },

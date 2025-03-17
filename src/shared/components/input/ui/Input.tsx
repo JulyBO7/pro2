@@ -1,7 +1,8 @@
 import {
-    ChangeEvent, FC, InputHTMLAttributes, useEffect, useRef, useState,
+    ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from "react";
 import { classNames } from "shared/lib/helpers/classNames";
+import { TFunctionResult } from "i18next";
 import cls from "./Input.module.scss";
 
 export enum InputTheme{
@@ -13,12 +14,12 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChan
     onChange?: (value: string)=> void,
     className?: string,
     caret?: boolean,
-    Theme?: InputTheme,
-    placeholder?: string | number
+    theme?: InputTheme,
+    placeholder?: string | number | TFunctionResult
     autoFocus?: boolean
 }
 
-export const Input:FC<InputProps> = (props) => {
+export const Input = memo((props: InputProps) => {
     const {
         type = "text",
         value,
@@ -26,7 +27,7 @@ export const Input:FC<InputProps> = (props) => {
         className,
         readOnly,
         caret,
-        Theme = InputTheme.PRIMARY,
+        theme = InputTheme.PRIMARY,
         placeholder,
         autoFocus, ...rest
     } = props;
@@ -72,7 +73,7 @@ export const Input:FC<InputProps> = (props) => {
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSelect={onSelect}
-                        className={classNames(cls.input, {}, [cls[Theme]])}
+                        className={classNames(cls.input, {}, [cls[theme]])}
                         type={type}
                         value={value}
                         onChange={onChangeValue}
@@ -89,4 +90,4 @@ export const Input:FC<InputProps> = (props) => {
             </div>
         </div>
     );
-};
+});

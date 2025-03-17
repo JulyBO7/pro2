@@ -6,6 +6,7 @@ import { ArticleSchema } from "entities/article";
 import { CounterSchema } from "entities/counter";
 import { ProfileSchema } from "entities/profile";
 import { UserSchema } from "entities/user";
+import { AddNewCommentFormSchema } from "features/add-new-comment";
 import { LoginSchema } from "features/auth-by-username";
 import { CommentListSchema } from "pages/atricle-details-page";
 
@@ -17,6 +18,7 @@ export interface StateSchema {
     profile?: ProfileSchema
     article?: ArticleSchema
     commentList?: CommentListSchema
+    addNewCommentForm?:AddNewCommentFormSchema
 }
 export type StateSchemaKey = keyof StateSchema
 

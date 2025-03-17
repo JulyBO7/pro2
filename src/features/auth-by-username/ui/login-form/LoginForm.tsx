@@ -53,7 +53,7 @@ const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
                     onChange={onChangeUserName}
                     className={cls.input}
                     caret
-                    Theme={InputTheme.CLEAR}
+                    theme={InputTheme.CLEAR}
                 />
                 <Input
                     className={cls.input}
@@ -61,7 +61,7 @@ const LoginForm = ({ autofocus, onSuccess }: LoginFormProps) => {
                     placeholder={String(t("enterPassword"))}
                     value={password}
                     onChange={onChangePassword}
-                    Theme={InputTheme.CLEAR}
+                    theme={InputTheme.CLEAR}
                 />
                 <Button
                     disabled={isLoading}

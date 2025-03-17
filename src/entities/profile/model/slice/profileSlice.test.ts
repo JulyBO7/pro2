@@ -12,6 +12,7 @@ describe("profile slice tests", () => {
     });
     test("profile reducer - update profile", () => {
         const profileForm = {
+            id: "1",
             first: "Ivan",
             lastname: "Ivanov",
             age: 30,
@@ -19,6 +20,7 @@ describe("profile slice tests", () => {
             username: "admin",
         };
         const updatedProfile = {
+            id: "1",
             first: "Sasha",
             lastname: "Sokolov",
         };
@@ -61,6 +63,7 @@ describe("profile slice tests", () => {
     });
     test("profile reducer - fetch profile data - fulfilld", () => {
         const profile = {
+            id: "1",
             first: "Sasha",
             lastname: "Sokolov",
             age: 31,
@@ -69,17 +72,18 @@ describe("profile slice tests", () => {
         };
         const state: DeepPartial<ProfileSchema> = {};
 
-        expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(profile, "")))
+        expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(profile, "", "")))
             .toEqual({ formData: profile, data: profile, isLoading: false });
     });
     test("profile reducer - fetch profile data - rejected", () => {
         const state: DeepPartial<ProfileSchema> = {};
 
-        expect(profileReducer(state as ProfileSchema, fetchProfileData.rejected(null, "", undefined, "error!")))
+        expect(profileReducer(state as ProfileSchema, fetchProfileData.rejected(null, "", "", "error!")))
             .toEqual({ error: "error!", isLoading: false });
     });
     test("profile reducer - update profile data - fulfilld", () => {
         const profile = {
+            id: "1",
             first: "Sasha",
             lastname: "Sokolov",
             age: 31,
@@ -87,6 +91,7 @@ describe("profile slice tests", () => {
             username: "user",
         };
         const updateProfile = {
+            id: "1",
             first: "Andrey",
             lastname: "Voronov",
             age: 31,

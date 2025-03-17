@@ -13,7 +13,7 @@ export const ArticleImageBlock:FC<ArticleImageBlockProps> = (props) => {
     const { className, block } = props;
     return (
         <div className={classNames(cls.container, {}, [className])}>
-            <img src={block.src} alt={block.title} />
+            <img src={block.src} alt={block.title} className={cls.image} />
             {block.title && <Text text={block.title} />}
         </div>
     );

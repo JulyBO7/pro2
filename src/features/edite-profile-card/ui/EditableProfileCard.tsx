@@ -4,11 +4,12 @@ import { Button, ButtonTheme } from "shared/components/button";
 import { Text, TextThem } from "shared/components/text";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch";
 import {
-    profileActions, ProfileCard, selectProfileError, selectProfileIsLoading,
+    profileActions, ProfileCard, selectProfileData, selectProfileError, selectProfileIsLoading,
 } from "entities/profile";
 import { useSelector } from "react-redux";
 import { Currency } from "entities/currencies";
 import { Country } from "entities/countries";
+import { selectUserAuthData } from "entities/user";
 import cls from "./EditableProfileCard.module.scss";
 import { selectProfileReadonly } from "../model/selectors/profile-readonly-selector/selectProfileReadonly";
 import { updateProfileData } from "../services/update-profile-data/updateProfileData";
@@ -25,6 +26,11 @@ export const EditableProfileCard:FC<{}> = () => {
     const profileError = useSelector(selectProfileError);
     const isLoading = useSelector(selectProfileIsLoading);
     const validateErrors = useSelector(selectProfileValidateErrors);
+    const authData = useSelector(selectUserAuthData);
+    const profile = useSelector(selectProfileData);
+
+    const canEdit = authData?.id === profile?.id;
+    console.log("authData?.id: ", authData?.id, " profile?.id: ", profile?.id);
 
     const validateErrorsList = useMemo(() => validateErrors?.map((error) => (
         <Text
@@ -73,7 +79,7 @@ export const EditableProfileCard:FC<{}> = () => {
         <div>
             <div className={cls.container}>
                 <Text title={t("profile")} className={cls.textItem} />
-                {profileReadonly ? <Button onClick={handleClickEditBtn} className={cls.button}>{t("edit")}</Button>
+                {canEdit && (profileReadonly ? <Button onClick={handleClickEditBtn} className={cls.button}>{t("edit")}</Button>
                     : (
                         <div>
                             <Button className={cls.buttonSave} onClick={handleClickSaveBtn}>{t("save")}</Button>
@@ -84,7 +90,7 @@ export const EditableProfileCard:FC<{}> = () => {
                                 {t("cancel")}
                             </Button>
                         </div>
-                    )}
+                    )) }
             </div>
             {validateErrorsList}
             <ProfileCard

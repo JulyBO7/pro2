@@ -14,7 +14,7 @@ describe("fetch profile data thunk tests", () => {
         };
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: profile }));
-        const action = await thunk.callThunk();
+        const action = await thunk.callThunk("1");
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();
@@ -24,7 +24,7 @@ describe("fetch profile data thunk tests", () => {
     test("rejected", async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.reject(new Error("error")));
-        const action = await thunk.callThunk();
+        const action = await thunk.callThunk("1");
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalledTimes(1);

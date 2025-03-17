@@ -4,13 +4,13 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkArg } from "app/providers/store-provider";
 import { Profile } from "../../model/types/profile";
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkArg<string>>(
+export const fetchProfileData = createAsyncThunk<Profile, string, ThunkArg<string>>(
     "profile/getProfile",
-    async (_, thunkAPI) => {
+    async (profileId, thunkAPI) => {
         const { extra, rejectWithValue } = thunkAPI;
 
         try {
-            const response = await extra.api.get<Profile>("/profile");
+            const response = await extra.api.get<Profile>(`/profile/${profileId}`);
             if (!response.data) {
                 throw Error("user not found!");
             }

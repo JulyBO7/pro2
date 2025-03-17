@@ -44,11 +44,11 @@ export const ArticleDetails:FC<ArticleDetailsProps> = ({ id }) => {
     const getArticleBlocks = useCallback((block: ArticleBlockType) => {
         switch (block.type) {
         case ArticleBlock.CODE:
-            return <ArticleCodeBlock key={block.id} block={block} />;
+            return <ArticleCodeBlock key={block.id} block={block} className={cls.block} />;
         case ArticleBlock.IMAGE:
-            return <ArticleImageBlock key={block.id} block={block} />;
+            return <ArticleImageBlock key={block.id} block={block} className={cls.block} />;
         case ArticleBlock.TEXT:
-            return <ArticleTextBlock key={block.id} block={block} />;
+            return <ArticleTextBlock key={block.id} block={block} className={cls.block} />;
         default: return null;
         }
     }, []);

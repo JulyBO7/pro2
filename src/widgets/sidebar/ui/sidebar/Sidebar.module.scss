@@ -5,6 +5,7 @@
     position: relative;
     transition: width 0.2s;
     border-top: none;
+    flex-shrink: 0;
 }
 
 .collapseButton {

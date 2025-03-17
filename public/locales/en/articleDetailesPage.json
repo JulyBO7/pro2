@@ -1,4 +1,6 @@
 {
     "pageNotFound": "Page not found!",
-    "comments": "Comments"
+    "comments": "Comments",
+    "send": "Send", 
+    "inputComment": "Input comment text"
 }

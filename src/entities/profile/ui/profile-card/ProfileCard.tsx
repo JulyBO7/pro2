@@ -82,7 +82,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             </div>
             <Input
                 placeholder={String(t("name"))}
-                Theme={InputTheme.CLEAR}
+                theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.first}
@@ -90,7 +90,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("lastName"))}
-                Theme={InputTheme.CLEAR}
+                theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.lastname}
@@ -98,7 +98,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("age"))}
-                Theme={InputTheme.CLEAR}
+                theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.age}
@@ -106,7 +106,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("city"))}
-                Theme={InputTheme.CLEAR}
+                theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.city}
@@ -114,7 +114,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("enterUserName"))}
-                Theme={InputTheme.CLEAR}
+                theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.username}
@@ -122,7 +122,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
             />
             <Input
                 placeholder={String(t("enterRefOnAvatar"))}
-                Theme={InputTheme.CLEAR}
+                theme={InputTheme.CLEAR}
                 caret
                 readOnly={readonly}
                 value={profile?.avatar}

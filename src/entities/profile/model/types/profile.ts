@@ -3,6 +3,7 @@ import { Currency } from "entities/currencies";
 import { ProfileValidateErrors } from "features/edite-profile-card";
 
 export interface Profile {
+    id?: string,
     first?: string,
     lastname?:string,
     age?: number,
@@ -13,6 +14,7 @@ export interface Profile {
     avatar?: string
 }
 export interface ProfileSchema {
+
     data?: Profile
     formData?: Profile
     isLoading: boolean

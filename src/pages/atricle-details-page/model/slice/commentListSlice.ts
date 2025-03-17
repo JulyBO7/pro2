@@ -25,16 +25,18 @@ const commentListSlice = createSlice({
             1: {
                 id: "1",
                 text: "comment1",
-                user: { username: "admin", id: 2 },
+                user: { username: "admin", id: "2" },
             },
             2: {
                 id: "2",
                 text: "comment2",
-                user: { username: "user1", id: 3 },
+                user: { username: "user1", id: "3" },
             },
         },
     }),
-    reducers: {},
+    reducers: {
+        addNewComment: commentListAdapter.addOne,
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchCommentList.pending, (state) => {
             state.isLoading = true;

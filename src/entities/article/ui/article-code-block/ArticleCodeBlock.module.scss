@@ -1,4 +1,9 @@
 .container {
-    max-width: 100%;
-    margin-bottom: 20px;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.code {
+    flex-grow: 1;
 }

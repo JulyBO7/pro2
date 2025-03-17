@@ -30,13 +30,15 @@ export const Code:FC<CodeProps> = (props) => {
     }, []);
 
     return (
-        <pre className={classNames(cls.container, {}, [className])}>
-            <code>{text}</code>
-            <Button theme={ButtonTheme.CLEAR} onClick={handleCopyClick} className={cls.copyButton}>
-                {isClicked
-                    ? <Icon Svg={CheckMark} />
-                    : <Icon Svg={Copy} className={cls.icon} />}
-            </Button>
-        </pre>
+        <div className={classNames(cls.container, {}, [className])}>
+            <pre>
+                <code>{text}</code>
+                <Button theme={ButtonTheme.CLEAR} onClick={handleCopyClick} className={cls.copyButton}>
+                    {isClicked
+                        ? <Icon Svg={CheckMark} />
+                        : <Icon Svg={Copy} className={cls.icon} />}
+                </Button>
+            </pre>
+        </div>
     );
 };

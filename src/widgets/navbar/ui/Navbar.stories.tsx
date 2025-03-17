@@ -13,7 +13,7 @@ const stateWithAuth: DeepPartial<StateSchema> = {
     user: {
         authData: {
             username: "",
-            id: 1,
+            id: "1",
         },
     },
 };

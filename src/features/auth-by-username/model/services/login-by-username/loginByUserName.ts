@@ -10,7 +10,7 @@ interface LoginByUserNameArg {
 interface LoginByUserNameResponse {
     username: string
     password: string
-    id: number
+    id: string
 }
 
 export const loginByUserName = createAsyncThunk<LoginByUserNameResponse, LoginByUserNameArg, ThunkArg<string>>(

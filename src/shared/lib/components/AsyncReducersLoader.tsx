@@ -6,7 +6,7 @@ import {
 import { useStore } from "react-redux";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 
-type ReducersList = {
+export type ReducersList = {
     [name in StateSchemaKey]?: Reducer
 }
 type AsyncReducersLoaderProps = {
